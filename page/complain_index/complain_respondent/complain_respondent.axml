@@ -1,0 +1,203 @@
+<view class="page" hidden={{allHidden}} >
+  <form>
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">问责人</view>
+        <view class="form-row-content">
+          <view class="things-values">{{name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <view class="things-values">{{post}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">被问责人</view>
+        <view class="form-row-content" >
+          <view class="things-values">{{respondent}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-rows">
+        <view class="form-row-label">问责事由</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea class="things-value" style="height:170rpx;" value="{{complainReason}}"  disabled />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 扩展照片显示模块 -->
+    <view hidden={{zmPic1Hide}} style="margin-bottom: 20rpx;">
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            相关证明拍照
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{complainEvidencePicShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{complainEvidencePicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true >
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{complainEvidencePic}}" data-valb="{{complainEvidencePicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{complainEvidencePic}}" data-valb="{{complainEvidencePicShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+    </view>
+    <view class="page-section" hidden={{lyHide1}} >
+      <view class="form-row">
+        <view class="form-row-label" style="width: 2.35rem;" >相关证明音频</view>
+        <view class="form-row-content" style="margin-left: 0.5rem;" >
+          <view class="audioStart" >
+            <button size="default" type="ghost" onTap="start1">点击播放</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">申 请 人 签 字</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            <image class="qz_img folat" mode="widthFix" src="{{signImageSQ}}"/></view>
+        </view>
+      </view>
+    </view> -->
+    <view class="page-section" style="height:0.8rem;padding:0.1rem 0.25rem;">
+        <view class="tishi">
+          投诉人已将相关证据材料上交。
+        </view>
+    </view>
+    <view class="page-section" a:for="{{yjList}}" hidden={{yjkhide}}>
+      <view class="form-rows">
+        <view class="form-row-label">{{item.name}}</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;" disabled="disabled" value="{{item.approvalOpinions}}" />
+          </view>
+          <view class="text_title">审批人:{{item.approvalUser}}</view>
+          <view class="text_title_2">时间:{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 1.申诉人 -->
+    <view hidden={{isSsuHide}} style="margin-top:20rpx;margin-bottom: 20rpx;" >
+      <view class="page-section" hidden={{sshide}}>
+        <view class="form-rows">
+          <view class="form-row-label">申诉说明</view>
+          <view class="textarea-content">
+            <view class="page-section-demo">
+              <textarea name="textarea" class="things-value" style="height:170rpx;" name="respondentState" placeholder="请输入不小于30个字的意见" onBlur="getRespondentState"/>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view hidden={{sshide}}>
+        <view class="body_img">
+          <view class="img_title">
+              相关证明拍照
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{respondentEvidencePicShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{respondentEvidencePicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline">
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{respondentEvidencePic}}" data-valb="{{respondentEvidencePicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view onTap="takePhoto" class="jia" data-vala="{{respondentEvidencePic}}" data-valb="{{respondentEvidencePicShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+    </view>
+    
+    <view class="page-section" hidden={{ytsmhide}}>
+      <view class="form-rows">
+        <view class="form-row-label">申诉说明</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea class="things-value" style="height:170rpx;" value="{{respondentState}}"  disabled />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden={{zmPic2Hide}} style="margin-bottom: 20rpx;">
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            相关证明拍照
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{respondentEvidencePicShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{respondentEvidencePicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true >
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{respondentEvidencePic}}" data-valb="{{respondentEvidencePicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{respondentEvidencePic}}" data-valb="{{respondentEvidencePicShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+    </view>
+    <view class="page-section" hidden={{lyHide2}} style="margin-top:20rpx;">
+      <view class="form-row">
+        <view class="form-row-label" style="width: 2.35rem;" >相关证明音频</view>
+        <view class="form-row-content" style="margin-left: 0.5rem;" >
+          <view class="audioStart" >
+            <button size="default" type="ghost" onTap="start2">点击播放</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="page-section" style="height:1.2rem;padding:0.1rem 0.25rem;margin-top:20rpx;">
+      <view class="tishi">
+          如需申诉，请尽快将相关录音上交给质监部{{complainVm}}。
+      </view>
+    </view> -->
+
+    <!-- <view class="kuai" style="margin-top: 20rpx;"></view> -->
+
+    <!-- 不同状态不同按钮 -->
+    <!-- 1.申诉人 -->
+    <view class="my-button" hidden={{sshide}} style="margin-top:20rpx;">
+      <view class="page-section-btns">
+        <view>
+          <button class="buttons" type="primary" formType="submit" onTap="no_crty">不申诉</button>
+        </view>
+        <view>
+          <button class="buttons" type="ghost" formType="submit" onTap="yes_ssty">申诉</button>
+        </view>          
+        </view>
+      </view>
+    </view>
+    <!-- 2.结束之后返回 -->
+    <view class="button_cl" hidden={{toback}} >
+      <button class="submit_form" style="margin-bottom: 0.16rem;" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+    </view>
+  </form>
+</view>
+
+

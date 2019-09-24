@@ -1,0 +1,18 @@
+.body_img {
+  width: 100%;
+  margin-left: 0%;
+}
+
+.bian {
+  width: 100%;
+  margin-left: 0%;
+}
+
+.jia-jia {
+  top:-5rpx;
+}
+
+.my-textarea{
+  font-family: "微软雅黑";
+  font-size: 34rpx;
+}

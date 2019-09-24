@@ -1,0 +1,154 @@
+<view class="page" hidden={{allHidden}} >
+  <form>
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">姓    名</view>
+        <view class="form-row-content">
+          <view class="things-values">{{name}}</view>
+        </view>
+        <view class="form-row-content" style="margin-left:2rem;margin-top:0.1rem;" hidden={{callHidden}}>
+          <!-- <button style="width:1.4rem;height:0.8rem;line-height:0.8rem" size="default" type="ghost" onTap="callUser">
+            拨号
+          </button> -->
+          <image class="callimg" mode="aspectFit" src="/image/bohao.png" onTap="callUser"  />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <view class="things-values">{{post}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">客户单位</view>
+        <view class="form-row-content">
+          <view class="things-values">{{customerUnit}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">自车牌照</view>
+        <view class="form-row-content">
+          <view class="things-values">{{licensePlate}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form_box mar_top">
+        <view class="form_title loaction_title">车辆地点</view>
+        <view class="form_body" style="width:65%">
+          <view class="wz_text loaction_content">
+            <view>{{accidentLocation}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden={{zmPic1Hide}} style="margin-bottom: 20rpx;">
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            新车车架号照片
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{newCarFrameNumberPicShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{newCarFrameNumberPicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true >
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{newCarFrameNumberPic}}" data-valb="{{newCarFrameNumberPicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{newCarFrameNumberPic}}" data-valb="{{newCarFrameNumberPicShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+    </view>
+    <view hidden={{zmPic2Hide}} style="margin-bottom: 20rpx;">
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            新车问题照片
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{newCarProblemPicShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{newCarProblemPicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true >
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{newCarProblemPic}}" data-valb="{{newCarProblemPicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{newCarProblemPic}}" data-valb="{{newCarProblemPicShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+    </view>
+    <view class="page-section" hidden={{isStatusHide}}>
+      <view class="form-row">
+        <view class="form-row-label" style="font-weight: bold;">任务指令</view>
+        <view class="form-row-content">
+          <view class="things-values" style="font-weight: bold;">{{taskStatusShow}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section" a:for="{{yjList}}" hidden={{yjkhide}}>
+      <view class="form-rows">
+        <view class="form-row-label">{{item.name}}</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;" disabled="disabled" value="{{item.approvalOpinions}}" />
+          </view>
+          <view class="text_title">审批人:{{item.approvalUser}}</view>
+          <view class="text_title_2">时间:{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-section" hidden={{yjhide}}>
+      <view class="form-rows">
+        <view class="form-row-label">审批意见</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;"  placeholder="请输入不小于30个字的意见"  onInput="approvalValue" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="kuai"></view>
+
+    <!-- 不同权限不同按钮 -->
+    <!-- 1.业务员审批 -->
+    <view class="my-button" hidden={{sphide}} >
+        <view class="page-section-btns">
+          <view>
+            <button class="buttons" type="primary" formType="submit" onTap="yes_ty">任务继续</button>
+          </view>
+          <view>
+            <button class="buttons" type="primary" formType="submit" onTap="no_ty">任务取消</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 2.结束之后返回 -->
+    <view class="button_cl" hidden={{toback}} >
+      <button class="submit_form" style="margin-bottom: 0.16rem;" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+    </view>
+    <!-- <view class="button_cl" hidden={{kouHidden}} >
+      <button class="submit_form" size="default" formType="submit" type="primary" onTap="zj_tj">点击确定</button>
+    </view> -->
+
+  </form>
+</view>
+
+
+

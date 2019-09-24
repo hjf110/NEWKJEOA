@@ -1,0 +1,84 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.header {
+  position: relative;
+  background: white;
+  width: 96%;
+  margin-left: 2%;
+  border-radius: 5px;
+  margin-top: 10px;
+  height: 60px;
+}
+
+.query_input {
+  display: inline-block;
+  border: 1px black solid;
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  height: 40px;
+  width: 70%;
+  text-align: left;
+}
+
+.query_button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  display: inline-block;
+  width: 20%;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.scroll_style {
+  background: #F7F7F7;
+  /* border-radius: 10px; */
+ /* box-shadow:inset 0px 0px 5px 1px #000; */
+  border: 1px solid gainsboro;
+  width: 98%;
+  height: 1050rpx;
+  margin-left: 1%;
+
+}
+.card_box{
+  height:150px;
+}
+
+.info_item {
+  background:;
+  /* border-radius: 10px; */
+  box-shadow:0 0 1px #000;
+  margin-top: 20px;
+  width: 90%;
+  height: 40px;
+  margin-left: 5%;
+  /* border: 1px solid blue; */
+}
+
+.info_body {
+  position: relative;
+  height: 100%;
+  width: 80%;
+  margin-left: 10%;
+  /* border: 1px solid black; */
+}
+
+.text_left {
+  font-size: 19px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+}
+
+.text_right {
+  font-size: 19px;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+}

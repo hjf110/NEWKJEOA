@@ -1,0 +1,37 @@
+<scroll-view class="need-scroll" scroll-y="true" onScrollToLower="lower">
+  <view class="need-body-box">
+    <view class="need-box">
+      <view class="need-title">员工请假须知</view>
+      <view class="need-fu-title"></view>
+      <view class="need-body"> 为规范公司员工的相关请假手续，提高工作效率。现对公司员工的请假情况如下说明。</view>
+      <view class="need-body border_text">一. 请假要求:</view>
+      <view class="need-body">1. 公司员工如需请假，所有事假应提前二天申请，并按要求的规定OA流程办理请假手续，做好工作交接交待.</view>
+      <view class="need-body">2. 如遇紧急情况、生病等不可预知的因素，可在当天上班前按规定走OA请假流程并电话告知部门领导,由部门领导协调安排好工作，本人在OA中提供相关证明。</view>
+      <view class="need-body">3.员工结束请假，必须完成OA请假流程中的“销假”工作，逾期视为旷工。</view>
+      <view class="need-body border_text">二、请假流程如下：</view>
+      <view class="need-body">1.技师岗位员工请假,申请人提交OA明确事由及相关信息并签名,相关直属部门领导对其申请进行了解,领导明确因其的请假,工作是如何安排协调的(如替补、换班等细节)。指挥中心了解直属部门领导的安排意见后,方可同意并按OA流程要求提写意见或建议。请假三天以上假期由总公司副总以上领导同意方可。</view>
+      <view class="need-body">2.其他部门员工需请假，申请人提交OA明确事由及相关信息并签名,相关直属部门领导对其申请进行了解,领导明确因其的请假,工作是如何安排协调的(如替补、换班等细节)。由部门经理审批同意方可，并按OA流程要求提写意见或建议。请假三天以上假期由总公司副总以上领导同意方可。</view>
+      <view class="need-body">3.所有员工的OA请假流程、审批过程及销假内容由质监部监督、备案（逾期视为旷工)。</view>
+      <view class="need-body">4.对销假的及时性与续假的申请不按规定的（均视为旷工)。</view>
+      <view class="need-body border_text">三、请假制度须知：</view>
+      <view class="need-body">1、所有员工请假需提前二天以上提交OA请假申请(紧急情况、生病)除外。</view>
+      <view class="need-body">2、需明确填写请假类别、事由、是否补班(换班）、请假时间等具体内容确认签名，并对请假做出承诺:<text class="red_text">本人已知晓公司规章制度。</text></view>
+      <view class="need-body">3、公司对于“病、事假、旷工”设有考核。在当月有二天（含二天）以上的请假，将取消全勤奖励400元（即KPI 4分）。</view>
+      <view class="need-body">4、请假员工在公司同意的情况下,按其填写的内容遵守承诺,制度规定请事假但不进行换班、补班的每天需扣减<text class="red_text">200元</text>;请病假（必须提供正规的医院《建休单》盖章原件下）每天扣减<text class="red_text">100元</text>。另KPI 考核分按制度执行</view>
+      <view class="need-body">5、员工的婚假、丧假（直系亲属丧亡）、产假等,按国家规定标准执行。可不补班，不另作扣减，但将取消全勤奖励400元（即KPI 4分）。</view>
+      <view class="need-body">6、技师岗位的员工因上岗证年检,准假3天(C1驾照上岗证已被国家取消，不用年检，无年检假）。上岗证年检期间可再另请2天事假，但该2天事假必须补班或按规定扣减。同时将取消全勤奖励400元（即KPI 4分）。</view>
+      <view class="need-body">7、续假必须提前二天，重新走OA请假流程。员工必须通过直属部门领导同意批准及相关部门走完流程同意后方可续假，否则以旷工处理。</view>
+      <view class="need-body">8、未办理OA请假流程的、<text class="red_text">未及时操作OA销假的</text>、超过请假期限不到岗或续假审批未通过拒不到岗的，一律按旷工处理。将取消当月全勤奖励400元（即KPI 4分）,并处罚每旷工一天扣减<text class="red_text">500元</text>。连续旷工三天及以上或一个月内旷工二次及以上的按自动离（辞）职处理，并按公司相关制度处罚。</view>
+      <view class="need-body">处罚并不是公司的目的，规范公司的请假、换班流程才是公司想要的结果，请各位员工自觉遵守公司制度，使公司的OA请假流程能被规范执行(执行日起文本制度与本须知有不符的按本须知执行)。</view>
+
+      <view class="need-body left-foot">浙江快捷汽车股份有限公司</view>
+      <!--<checkbox-group class="check-box" onChange="onChange"><label class="checkbox" a:for="{{items}}"><checkbox style="background:{{color}}" value="{{item.value}}"/><text class="checkbox-text">{{item.name}}</text></label></checkbox-group> -->
+    </view>
+    <view class="kuai">
+    </view>
+  </view>
+</scroll-view>
+<view class="button_cl">
+  <button class="submit_form" size="default" onTap="tj" type="primary">{{button_text}}</button>
+  <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="primary">不同意</button> -->
+</view>

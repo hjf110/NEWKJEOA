@@ -1,0 +1,63 @@
+
+<!--仓库领用页面-->
+<view hidden={{is_gundong}}>
+  <scroll-view class="scroll-view_H" style="width: 100%;hight:100%;">
+    <!--拍摄尿素照片 -->
+    <view class="body_img">
+      <view class="img_title">
+  拍摄尿素照片
+      </view>
+      <view class="nsimg">
+        <view class="imgbox" onTap="ylan_ns" a:for="{{imgsrc_ns}}" a:for-index="idx" data-index="{{idx}}">
+          <image class="img_ns" mode="widthFix" src="{{item}}"/>
+        </view>
+        <view onTap="takePhoto_ns" class="jia">
+    +
+        </view>
+        <view style='clear:both'></view>
+      </view>
+    </view>
+    <view class="bian"></view>
+    <!--拍摄领用人拍摄照片 -->
+    <view class="body_img">
+      <view class="img_title">
+  拍摄领用人照片
+      </view>
+      <view class="nsimg">
+        <view class="imgbox" onTap="ylan_ren" a:for="{{imgsrc_ren}}" a:for-index="idx" data-index="{{idx}}">
+          <image class="img_ns" mode="widthFix" src="{{item}}"/>
+        </view>
+        <view onTap="takePhoto_ren" class="jia">
+    +
+        </view>
+        <view style='clear:both'></view>
+      </view>
+    </view>
+    <view class="bian"></view>
+    <view class="sign_img" hidden={{b_hidden}}  >
+      <button onTap="to_qz" class="button_qz" type="warn">点击签字</button>
+    </view>
+    <view hidden={{y_hidden}}>
+      <button onTap="to_qz" class="button_cx folat " type="warn">重写</button>
+      <image class="qz_img folat" mode="widthFix" src="{{signImage}}"/>
+    </view>
+    <view class="kuai">
+    </view>
+  </scroll-view>
+</view>
+<!--确认按钮 -->
+<view class="b_box">
+  <button onTap="ok_submit" class="button_submit" type="primary">确认</button>
+</view>
+<!--签字弹窗 -->
+<!--<image mode="scaleToFill" src=""/> -->
+<view class='content' hidden={{is_hidden}} >
+  <canvas class='firstCanvas' id="firstCanvas" onTouchMove='move' onTouchStart='start' onTouchEnd='end' onTouchCancel='cancel' onLongTap='tap' disable-scroll=true></canvas>
+  <view>
+    <button class="button_qm" onTap='clearClick'>重写</button>
+    <button class="button_qm" onTap='saveClick' >确定</button>
+  </view>
+</view>
+<!--遮罩-->
+<view class="zz" hidden={{is_hidden}}>
+</view>

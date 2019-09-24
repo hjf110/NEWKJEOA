@@ -1,0 +1,114 @@
+<!--晋升申请页面-->
+<view class="box">
+  <view class="box_2">
+    <form onSubmit="formsubmit">
+      <view class="form_box mar_top">
+        <view class="form_title">姓名</view>
+        <view class="form_body">
+          <view class="form_input">华吉锋</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">性别</view>
+        <view class="form_body">
+          <view class="form_input">男</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">籍贯</view>
+        <view class="form_body">
+          <view class="form_input">浙江</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">出生年月</view>
+        <view class="form_body">
+          <view class="form_input">1992-04-03</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">学历</view>
+        <view class="form_body">
+          <view class="form_input">大专</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">专业</view>
+        <view class="form_body">
+          <view class="form_input">机电一体化</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">毕业学校</view>
+        <view class="form_body">
+          <view class="form_input">嘉兴职业技术学院</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">毕业时间</view>
+        <view class="form_body">
+          <view class="form_input">1992-04-03</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">入职时间</view>
+        <view class="form_body">
+          <view class="form_input">1992-04-03</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">工作年限</view>
+        <view class="form_body">
+          <view class="form_input">3个月</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">现岗位</view>
+        <view class="form_body">
+          <view class="form_input">技师</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">现级别</view>
+        <view class="form_body">
+          <view class="form_input">试用技师</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">申请岗位</view>
+        <view class="form_body">
+          <view class="form_input">实习技师</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title yj pj">自我评价</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">　自我评价：本人性格开朗、稳重、有活力，待人热情、真诚；工作认真负责，积极主动，能吃苦耐劳，用于承受压力，勇于创新；有很强的组织能力和团队协作精神，具有较强的适应能力；纪律性强，工作积极配合；意志坚强，具有较强的无私奉献精神。
+　　对待工作认真负责，善于沟通、协调有较强的组织能力与团队精神；活泼开朗、乐观上进、有爱心并善于施教并行；上进心强、勤于学习能不断提高自身的能力与综合素质。在未来的工作中，我将以充沛的精力，刻苦钻研的精神来努力工作，稳定地提高自己的工作能力，与企业同步发展。
+　　本人热爱生活，性格开朗活泼，乐观向上，乐于助人，乐于进取，积极勤奋，有团队精神，拥有充实的专业知识，也有独立的思维能力，工作态度认真，乐于与人交往，对艺术有着浓厚的兴趣，从小热爱绘画，热爱设计，在校期间曾参加过班级和校园的绘画展览，手绘能力强，熟练cad, 3d max, photoshop,coreldraw等设计软件.有一定的相关工作经验，绘画过许多大型室内空间效果图，本人的博客里有自己设计的3d效果图.希望能成为各大企业一份子,今后务必尽自己能力为贵企业出一份力。
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title yj">部门审批</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">不同意</view>
+          </scroll-view>
+          <view class="text_title">审批人:华吉锋</view>
+        </view>
+      </view>
+      
+      <!--<view class="form_box mar_top"><view class="form_title yj">审批意见</view><view class="form_body"><view class="form_input"><textarea name="pj" class="yijian" placeholder="请输入" maxlength="140" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" /></view></view></view> -->
+      <view class="kuai">
+      </view>
+      <view class="button_cl">
+        <button class="submit_form" size="default" onTap="tj" type="primary">确认</button>
+        <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="primary">不同意</button> -->
+      </view>
+      <!--<button class="form_submit" onTap="dw2" type="primary">{{formtext.button_dw}}</button> -->
+    </form>
+  </view>
+</view>

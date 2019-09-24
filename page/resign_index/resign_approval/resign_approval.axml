@@ -1,0 +1,146 @@
+<view hidden={{allHidden}} >
+  <form>
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">姓    名</view>
+        <view class="form-row-content">
+          <view class="things-values">{{name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <view class="things-values">{{post}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">入职时间</view>
+        <view class="form-row-content">
+          <view class="inputTime">{{hiredate}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">工作年限</view>
+        <view class="form-row-content">
+          <view class="inputTime">{{workingSeniority}}</view>
+        </view>
+        <view class="tian">
+          天
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">申请离职时间</view>
+        <view class="form-row-content">
+          <view class="inputTime">{{resignApplyTime}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">离职原因</view>
+        <view class="form-row-content" >
+          <view class="things-values">{{resignCategory}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-rows">
+        <view class="form-row-label">离职事由</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;" value="{{resignReason}}"  disabled />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">申 请 人 签 字</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            <image class="qz_img folat" mode="widthFix" src="{{signImageSQ}}"/></view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section" a:for="{{yjList}}" hidden={{yjkhide}}>
+      <view class="form-rows">
+        <view class="form-row-label">{{item.name}}</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;" disabled="disabled" value="{{item.approvalOpinions}}" />
+          </view>
+          <view class="text_title">审批人:{{item.approvalUser}}</view>
+          <view class="text_title_2">时间:{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-section" hidden={{txsjhide}}>
+      <view class="form-row">
+        <view class="form-row-label">允许离职时间</view>
+        <view class="form-row-content" onTap="resignDatePicker">
+          <input class="inputTime" name="resignTime" value="{{resignTime}}" placeholder="允许离职时间" disabled />
+        </view>
+      </view>
+    </view>
+    <view class="page-section" hidden={{cksjhide}}>
+      <view class="form-row">
+        <view class="form-row-label">允许离职时间</view>
+        <view class="form-row-content">
+          <view class="inputTime">{{resignTime}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-section" hidden={{yjhide}}>
+      <view class="form-rows">
+        <view class="form-row-label">审批意见</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;"  placeholder="请输入不小于30个字的意见"  onInput="approvalValue" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="kuai"></view>
+
+    <!-- 不同权限不同按钮 -->
+    <!-- 1.直属部门提交 -->
+    <view class="button_cl" hidden={{tjhide}}>
+      <button class="submit_form" style="margin-bottom: 0.16rem;" formType="submit" size="default" type="primary" loading={{submitLoading}} onTap="zs_tj">确认提交</button>
+      <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="default">不同意</button> -->
+    </view>
+    <!-- 2.经理审批 -->
+    <view class="my-button" hidden={{sphide}} >
+        <view class="page-section-btns">
+          <view>
+            <button class="buttons" type="primary" formType="submit" onTap="yes_ty">同意</button>
+          </view>
+          <view>
+            <button class="buttons" type="ghost" formType="submit" onTap="no_ty">不同意</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 3.结束之后返回 -->
+    <view class="button_cl" hidden={{toback}} >
+      <button class="submit_form" style="margin-bottom: 0.16rem;" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+    </view>
+    <!-- <view class="button_cl" hidden={{kouHidden}} >
+      <button class="submit_form" size="default" formType="submit" type="primary" onTap="zj_tj">点击确定</button>
+    </view> -->
+
+  </form>
+</view>
+
+
+

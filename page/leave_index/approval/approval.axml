@@ -1,0 +1,383 @@
+<view class="page" hidden={{allHidden}}>
+  <form class="approvalForm" onSubmit="formSubmit">
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">姓    名</view>
+        <view class="form-row-content">
+          <view class="things-value">{{name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <view class="things-value">{{post}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">请假类别</view>
+        <view class="form-row-content">
+          <view class="things-value">{{leaveCategory}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-rows">
+        <view class="form-row-label">请假事由</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;" disabled="disabled" value="{{leaveReason}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">请假时间</view>
+        <view class="form-row-content">
+          <view class="inputTime">{{leaveTime}}</view>
+        </view>
+      </view>
+      <view class="form-row">
+        <view class="form-row-label">请假天数</view>
+        <view class="form-row-content">
+          <view class="inputTime" style="float:left;">{{leaveDays}}天</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">是否补班</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            {{supplementaryClass}}
+          </view>
+        </view>
+      </view>
+      <!--<view class="form-row" hidden={{isSpecificHidden}} ><view class="form-row-label">具体时间</view><view class="form-row-content"><view class="inputTime" style="width:300rpx;">
+           {{supplementaryClassTime}}</view></view></view> -->
+    </view>
+    <view class="page-section" hidden={{isSpecificHidden}} >
+      <view class="form-rows">
+        <view class="form-row-label">补班时间</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea class="things-value" style="height:170rpx;" value="{{supplementaryClassTime}}" placeholder="" disabled />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">是否换班</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            {{shiftDuty}}
+          </view>
+        </view>
+      </view>
+      <view class="form-row" hidden={{isReliefHidden}} >
+        <view class="form-row-label">换班人员</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            {{shiftDutyUser}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">申 请 人 签 字</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            <image class="qz_img folat" mode="widthFix" src="{{createPic}}"/></view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section" a:for="{{yjList}}">
+      <view class="form-rows">
+        <view class="form-row-label kongge">{{item.name}}</view>
+        <view class="textarea-content">
+          <view class="page-section-demo">
+            <textarea name="textarea" class="things-value" style="height:170rpx;" disabled="disabled" value="{{item.approvalOpinions}}" />
+          </view>
+          <view class="text_title">审批人:{{item.approvalUser}}</view>
+          <view class="text_title_2">时间:{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 是否显示排班修改 -->
+    <view class="page-section" hidden={{isSchedulingStatus}} >
+      <view class="form-row">
+        <view class="form-row-label">排班修改</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            {{schedulingStatus}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 质检扣分扣钱***********************************************<view hidden={{xjHidden}} ><view class="page-section"><view class="form-row jiacu"><view class="form-row-label">扣分</view><view class="form-row-content"><view class="things-value">{{deductionShow}}</view></view></view></view><view class="page-section"><view class="form-row jiacu"><view class="form-row-label">扣钱</view><view class="form-row-content"><view class="things-value">{{deductMoneyShow}}</view></view></view></view></view> -->
+    <!-- 财务填写的部分*********************************************************************************************************** -->
+    <view hidden={{CwShow}} >
+      <view class="page-section" style="margin-top:20rpx">
+        <view class="form-row">
+          <view class="form-row-label">交接时间</view>
+          <view class="form-row-content">
+            <view class="things-value">{{financialTime}}</view>
+          </view>
+        </view>
+      </view>
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            现金上缴拍照
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{moneyListShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{moneyListShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true>
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{moneyList}}" data-valb="{{moneyListShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{moneyList}}" data-valb="{{moneyListShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            工单上缴拍照
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{danListShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{danListShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true >
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{danList}}" data-valb="{{danListShow}}" data-type="a2" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{danList}}" data-valb="{{danListShow}}" data-type="a2">
+              <!--<text class="jia-jia">+</text> -->
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+      <view class="page-section" style="margin-top:20rpx" hidden={{isCwQr}} >
+        <!--<view class="form-row"><view class="form-row-label">财务签字:</view><view class="form-row-content"><view class="things-value"><image class="qz_img folat" mode="widthFix" src="{{signImage}}"/></view></view></view> -->
+        <view class="form-row">
+          <view class="form-row-label">财务确认人</view>
+          <view class="form-row-content">
+            <view class="things-value">
+              {{financeStaff}}
+            </view>
+          </view>
+        </view>
+        <view class="form-row">
+          <view class="form-row-label">财务确认时间</view>
+          <view class="form-row-content">
+            <view class="things-value">
+              {{financeDate}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 车辆停放位置信息填完了 -->
+    <view hidden={{CgShow}} >
+      <view class="page-section" style="margin-top:20rpx">
+        <view class="form-row">
+          <view class="form-row-label">停放时间</view>
+          <view class="form-row-content">
+            <view class="things-value">{{vehicleTime}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="page-section" style="margin-top:20rpx">
+        <view class="form-row" style="height:1.88rem;">
+          <view class="form-row-label">定位</view>
+          <view class="form-row-content">
+            <view class="things-value">{{vehicleLocation}}</view>
+          </view>
+        </view>
+      </view>
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            车辆停放完毕拍照
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{vehiclePicShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{vehiclePicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true >
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{vehiclePic}}" data-valb="{{vehiclePicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{vehiclePic}}" data-valb="{{vehiclePicShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+    </view>
+    <!-- 扩展照片显示模块 -->
+    <view hidden={{KzShow}} style="margin-bottom: 20rpx;">
+      <view>
+        <view class="body_img">
+          <view class="img_title">
+            相关证明拍照
+          </view>
+          <view class="nsimg">
+            <view class="imgbox" a:for="{{claimingSupplyPicShow}}" a:for-index="idx">
+              <image onTap="yl" data-index="{{idx}}" data-imglist="{{claimingSupplyPicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+              <view style="display:inline" hidden=true >
+                <image onTap="delect" data-index="{{idx}}" data-vala="{{claimingSupplyPic}}" data-valb="{{claimingSupplyPicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+              </view>
+            </view>
+            <view hidden=true onTap="takePhoto" class="jia" data-vala="{{claimingSupplyPic}}" data-valb="{{claimingSupplyPicShow}}" data-type="a1">
+              <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+            </view>
+            <view style='clear:both'></view>
+          </view>
+        </view>
+        <view class="bian"></view>
+      </view>
+    </view>
+    <!-- 质检扣分扣钱*********************************************** -->
+    <view hidden={{xjHidden}} >
+      <view class="page-section">
+        <view class="form-row jiacu">
+          <view class="form-row-label">扣全勤奖积分</view>
+          <view class="form-row-content">
+            <view class="things-value">{{deductionShow}}分</view>
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="form-row jiacu">
+          <view class="form-row-label">处罚金额</view>
+          <view class="form-row-content">
+            <view class="things-value">{{deductMoneyShow}}元</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 销假内容显示模块 -->
+    <view hidden={{XjShow}}>
+      <view class="page-section" style="margin-top:20rpx">
+        <view class="form-row">
+          <view class="form-row-label">销假时间</view>
+          <view class="form-row-content">
+            <view class="things-value">{{claimingTime}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="page-section" style="margin-top:20rpx">
+        <view class="form-row" style="height:1.88rem;">
+          <view class="form-row-label">定位</view>
+          <view class="form-row-content">
+            <view class="things-value">{{claimingLocation}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="form-row">
+          <view class="form-row-label">销假备注</view>
+        </view>
+        <view class="page-section-demo">
+          <textarea class="my-textarea" value="{{claimingRemarks}}"  auto-height placeholder="请输入"  disabled />
+        </view>
+      </view>
+    </view>
+    <view class="page-section" hidden={{iszh}} >
+      <view class="form-row">
+        <view class="form-row-label">排班修改</view>
+        <view class="form-row-content">
+          <radio-group class="radio-group" name="schedulingStatus" onChange="radioChange">
+            <label class="radio" a:for="{{specific}}" key="label-{{index}}">
+              <radio value="{{item.name}}" checked="{{item.checked}}" />
+              <text class="radio-text">{{item.value}}</text>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <!-- 交接入口 -->
+    <view hidden={{isjiaojie}} >
+      <view class="page-section-btns">
+        <view hidden={{isCwhave}} >
+          <button class="buttons" type="ghost" onTap="to_cw">财务交接</button>
+        </view>
+        <view hidden={{isCghave}}>
+          <button class="buttons" type="ghost" onTap="to_cg">车管交接</button>
+        </view>
+      </view>
+    </view>
+    <!-- 审批意见框 -->
+    <view hidden={{islook}} >
+      <!--<view> -->
+      <view class="page-section" hidden={{yjhide}} >
+        <view class="form-rows">
+          <view class="form-row-label">审批意见</view>
+          <view class="textarea-content">
+            <view class="page-section-demo">
+              <textarea name="textarea" style="height:170rpx;" onBlur="approvalOpinionGet" placeholder="请输入不小于30个字的意见" onInput="approvalValue" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 扣分扣钱框 -->
+      <view hidden={{kouHidden}} >
+        <!--<view> -->
+        <view class="page-section">
+          <view class="form-row">
+            <view class="form-row-label">扣全勤奖积分</view>
+            <view class="form-row-content">
+              <input class="input kuandu" name="deduction" type="digit" placeholder="" onInput="approvalValue1" />
+            </view>
+          </view>
+          <view class="danwei">分</view>
+        </view>
+        <view class="page-section">
+          <view class="form-row">
+            <view class="form-row-label">处罚金额</view>
+            <view class="form-row-content">
+              <input class="input kuandu" name="deductMoney" type="digit" placeholder="" onInput="approvalValue2"/>
+            </view>
+          </view>
+          <view class="danwei">元</view>
+        </view>
+      </view>
+      <view class="my-button" hidden={{yjhide}} >
+        <view class="page-section-btns">
+          <view>
+            <button class="buttons" type="primary" onTap="yes_ty">同意</button>
+          </view>
+          <view>
+            <button class="buttons" type="ghost" onTap="on_ty">不同意</button>
+          </view>
+        </view>
+      </view>
+      <view class="button_cl" hidden={{kouHidden}} >
+        <button class="submit_form" size="default" formType="submit" type="primary" onTap="zj_tj">点击确定</button>
+      </view>
+    </view>
+    <view class="button_cl" hidden={{toback}} >
+      <button class="submit_form" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+    </view>
+    <!--<view class="button_cl" hidden={{qzHidden}} ><button class="submit_form" size="default" formType="submit" type="primary" onTap="to_qz">点击签字</button></view> -->
+    <!--<view class="my-button" hidden={{tjhide}} ><view class="page-section-btns"><view><button class="buttons" type="ghost" onTap="on_ty">重签</button></view><view><button class="buttons" type="primary" onTap="yes_ty">提交</button></view></view> -->
+    <view class="kuai"></view>
+  </form>
+</view>

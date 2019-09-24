@@ -1,0 +1,135 @@
+<view class="page" hidden={{allHidden}}  >
+  <form class="my-form" onSubmit="onSubmit" onReset="onReset">
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">姓    名</view>
+        <view class="form-row-content">
+          <input class="input-value" name="" maxlength="5" placeholder="请输入您的姓名" value="{{name}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <input class="input-value" name="post" maxlength="10" placeholder="请输入您的岗位" value="{{job}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <!--<view class="page-section"><view class="page-section-demo"><picker-view value="{{value}}" onChange="onChange" class="my-picker"><picker-view-column><view class="a">请假类别</view></picker-view-column><picker-view-column><view class="a">请选择请假类别</view><view a:for="{{list}}" key="{{item}}" class="a">{{item}}</view></picker-view-column></picker-view></view></view> -->
+    <view class="page-section">
+      <picker onChange="onChange" value="{{Qjvalue}}" range="{{list}}" range-key="{{item}}">
+        <view class="form-row">
+          <view class="form-row-label">请假类别</view>
+          <view class="form-row-content" style="margin-left: 0.85rem;">
+            <view class="input-value">{{list[Qjvalue]}}</view>
+          </view>
+          <view class="row-extra">(当前选择)</view>
+        </view>
+      </picker>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">请假事由</view>
+      </view>
+      <view class="page-section-demo">
+        <textarea class="my-textarea" name="leaveReason" auto-height placeholder="请输入不少于30字的事由"/>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">请假时间</view>
+        <view style="margin-left:0.8rem;" onTap="startDatePicker">
+          <input class="inputTime" value="{{startTime}}" placeholder="开始时间" disabled="disabled"/>
+        </view>
+        <view class="zhi">至</view>
+        <view onTap="endDatePicker" class="inputTime">
+          <input class="inputTime" value="{{endTime}}" placeholder="结束时间" disabled="disabled"/>
+        </view>
+      </view>
+      <view class="form-row" hidden="{{isCountDateHidden}}">
+        <view class="form-row-label">请假天数</view>
+        <view class="form-row-content" onTap="leaveDay">
+          <input class="countDate" name="leaveDays" maxlength="5" value="{{datenum}}" disabled="disabled" />
+        </view>
+        <view class="tian">
+          天
+        </view>
+      </view>
+    </view>
+    <!--<view class="page-section"><view class="form-row" hidden="{{isCountDate}}"><view class="form-row-label">请假天数</view><view class="form-row-content" onTap="leaveDay"><input class="input" name="leaveDays" maxlength="5" placeholder="请假天数" value="{{datenum}}" /></view></view></view> -->
+    <view hidden={{isbb}} >
+      <view class="page-section">
+        <view class="form-row">
+          <view class="form-row-label">是否补班</view>
+          <view class="form-row-content">
+            <radio-group class="radio-group" onChange="radioChangeSupplementary" name="supplementaryClass">
+              <label class="radio" a:for="{{specific}}" key="label-{{index}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />
+                <text class="radio-text">{{item.value}}</text>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+      </view>
+      <view class="page-section" hidden={{isSpecificHidden}} >
+        <view class="form-row">
+          <view class="form-row-label">补班时间</view>
+        </view>
+        <view class="page-section-demo">
+          <textarea class="my-textarea" name="supplementaryClassTime" auto-height placeholder="请输入补班时间" value="{{specificTime}}" />
+        </view>
+      </view>
+    </view>
+
+    <view hidden={{ishb}} >
+      <view class="page-section">
+        <view class="form-row">
+          <view class="form-row-label">是否换班</view>
+          <view class="form-row-content">
+            <radio-group class="radio-group" onChange="radioChangeRelief" name="shiftDuty">
+              <label class="radio" a:for="{{relief}}" key="label-{{index}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}" />
+                <text class="radio-text">{{item.value}}</text>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="form-row" hidden="{{isReliefHidden}}">
+          <view class="form-row-label">换班人员</view>
+          <view class="form-row-content" style="margin-left:0.85rem;">
+            <input class="input-value" name="shiftDutyPerson" value="{{reliefPerson}}" placeholder="换班人员"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="section">
+      <button style="background:red;color:white;" type="default" onTap="to_qz">点击签字确认</button>
+    </view>
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">本人签字</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            <image class="qz_img folat" mode="widthFix" src="{{signImage}}"/></view>
+        </view>
+      </view>
+    </view>
+    <!--<view class="kuai"></view> -->
+    <view class="button_cl">
+      <button loading={{submitLoading}} class="submit_form" formType="submit" size="default" type="primary">确认提交</button>
+      <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="default">不同意</button> -->
+    </view>
+  </form>
+</view>
+<!--签字弹窗 -->
+<!--<image mode="scaleToFill" src=""/> -->
+<view class='content' hidden={{is_hidden}} >
+  <canvas class='firstCanvas' id="firstCanvas" onTouchMove='move' onTouchStart='start' onTouchEnd='end' onTouchCancel='cancel' onLongTap='tap' disable-scroll=false ></canvas>
+  <view>
+    <button class="button_qm" onTap='clearClick'>重写</button>
+    <button class="button_qm" onTap='saveClick' >确定</button>
+  </view>
+</view>
+<!--遮罩-->
+<view class="zz" hidden={{is_hidden}} onTap="closeZZ"></view>

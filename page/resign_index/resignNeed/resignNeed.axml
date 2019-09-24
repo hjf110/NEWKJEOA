@@ -1,0 +1,31 @@
+<scroll-view class="need-scroll" scroll-y="true" onScrollToLower="lower">
+  <view class="need-body-box">
+    <view class="need-box">
+      <view class="need-title">员工离(辞)职须知</view>
+      <view class="need-fu-title"></view>
+      <view class="need-body"> 为规范公司员工的相关离(辞)职手续。现对公司员工的离(辞)职情况如下说明。</view>
+      <view class="need-body border_text">一. 离(辞)职流程如下:</view>
+      <view class="need-body">1、 技师岗位：</view>
+      <view class="need-body" style="text-indent: 3em;"> (1) 工龄未满三个月，离(辞)职人员须提前三天提交OA申请报告，必须由员工本人的签字提交申请,经部门直属领导通过后经总经办同意(并需直属部门领导通知其到指定地点交车及办理相关离职文本手续)；</view>
+      <view class="need-body" style="text-indent: 3em;"> (2) 工龄满三个月以上的离(辞)职人员须提前一个月提交OA申请报告，必须由员工本人的签字提交申请,经部门直属领导通过后经总经办同意(并需直属部门领导通知其到指定地点交车及办理相关离职手续)；</view>
+      <view class="need-body" style="text-indent: 3em;"> (3)离(辞)职人员在办理相应手续、流程时须归还入职以来公司配给、分发的一切工具及设备等所有物品（除短袖工作服）。包括：搭电宝、绑带、各种工具、工作服（冬装）、油卡、ETC卡等物品。如有遗失、损坏需照价赔偿。</view>
+      <view class="need-body">2、 其他岗位（管理岗、指挥中心、市场部等）：</view>
+      <view class="need-body" style="text-indent: 3em;"> (1) 离(辞)职人员须提前一个月提交OA申请报告，必须有员工本人的签名,经部门直属领导通过后经总经办同意(需直属部门领导通知后办理离(辞)职交接及相关手续)；</view>
+      <view class="need-body" style="text-indent: 3em;"> (2) 离(辞)职人员在办理相应手续、流程时须归还入职以来公司配给、分发的所有物品。包括：员工出入考勤卡（工作吊牌）、就餐IC卡、办公用品等。如有遗失、损坏需照价赔偿。</view>
+      <view class="need-body border_text">二、员工离(辞)职须知：</view>
+      <view class="need-body">1、 关于社保公司缴纳部分金额。截止您离开公司日期,需自行承担相应公司缴纳部分的社保金额，填写《社保自付部分承诺书》及《社保收款收据》等；</view>
+      <view class="need-body">2、 未按制度规定期限（需提前一个月）提交申请的离(辞)职人员，且由离(辞)职人员主动提出时，公司将按劳动法中《工资支付暂时条例》第十六条“因劳动者本人原因给用人单位造成经济损失的，用人单位可按照劳动合同的约定要求其赔偿经济损失，赔偿可从其本人的工资中扣除。扣除劳动者上月应发工资的20%。”离(辞)职必需遵守!</view>
+      <view class="need-body">3、 关于离(辞)职人员工资的领取流程。在办理离(辞)职手续时写好《工资领取方式告知书》或《工资认可委托书》以上手续流程不完整的,必须本人前来公司签字领取。在次月21日开始办理发放离(辞)职人员工资(如有疑义可向原部门领导咨询)。</view>
+      <!-- <view class="need-body">处罚并不是公司的目的，规范公司的请假、换班流程才是公司想要的结果，请各位员工自觉遵守公司制度，使公司的OA请假流程能被规范执行(执行日起文本制度与本须知有不符的按本须知执行)。</view> -->
+
+      <view class="need-body left-foot">浙江快捷汽车股份有限公司</view>
+      <!--<checkbox-group class="check-box" onChange="onChange"><label class="checkbox" a:for="{{items}}"><checkbox style="background:{{color}}" value="{{item.value}}"/><text class="checkbox-text">{{item.name}}</text></label></checkbox-group> -->
+    </view>
+    <view class="kuai">
+    </view>
+  </view>
+</scroll-view>
+<view class="button_cl">
+  <button class="submit_form" size="default" onTap="tj" type="primary">{{button_text}}</button>
+  <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="primary">不同意</button> -->
+</view>

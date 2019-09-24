@@ -1,0 +1,89 @@
+.page {
+  padding: 5px;
+  overflow-x: hidden;
+}
+
+.my-form {
+  height: 100%;
+}
+
+.page-section {
+  margin-bottom: 20rpx;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 120rpx;
+  align-items: center;
+}
+
+.form-row-label {
+  margin-left: 15rpx;
+  font-family: "微软雅黑";
+  font-size: 35rpx;
+}
+
+.form-row-content {
+  margin-left: 0.7rem;
+}
+
+.things-values {
+  font-family: "微软雅黑";
+  font-size: 35rpx;
+  text-align: left;
+}
+
+.inputTime {
+  font-size: 30rpx;
+  font-family: "微软雅黑";
+  text-align: left;
+}
+
+/* .query_input {
+  display: inline-block;
+  border: 1px black solid;
+  position: absolute;
+  top: 7px;
+  left: 4%;
+  height: 40px;
+  width: 90%;
+  text-align: left;
+} */
+
+
+
+.my-textarea{
+  font-family: "微软雅黑";
+  font-size: 34rpx;
+}
+
+.page-section-demo{
+  padding: 0rem 0.35rem 0.2rem;
+}
+
+.tishi{
+  margin-left: 0.15rem;
+  font-family: 微软雅黑;
+  font-size: 0.33rem;
+  color: red;
+}
+
+.button_cl {
+  position: relative;
+  bottom: 0rpx;
+  width: 94%;
+  background: white;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 100rpx;
+  left: 0%;
+}
+.submit_form {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 50rpx;
+}
+
+

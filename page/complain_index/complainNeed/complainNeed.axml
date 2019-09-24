@@ -1,0 +1,32 @@
+<scroll-view class="need-scroll" scroll-y="true" onScrollToLower="lower">
+  <view class="need-body-box">
+    <view class="need-box">
+      <view class="need-title">问责督办须知</view>
+      <view class="need-fu-title"></view>
+      <view class="need-body"> 为了进一步健全公司内部管理约束和责任追究机制,引导公司管理人员正确履行管理职责,杜绝各类失职行为,惩处岗位不作为与不正确作为,确保公司重大决策、决定、计划及规章制度的贯彻执行,建立恪尽职守、有错必究、有责必问的责任管理与追究机制,更好地实现公司生产经营管理目标,提高公司决策与经营管理水平,建设廉洁、务实、高效的管理团队，保障公司持续稳定发展,特制定问责督办OA流程作以下说明：</view>
+      <view class="need-body border_text">（一）问责设立：</view>
+      <view class="need-body" style="text-indent: 3em;"> 公司设立问责督办管理领导小组，集团公司总经理任组长，集团公司二位副总任副组长，质监部主管领导为成员，对全体员工的上下问责进行督办。</view>
+      <view class="need-body border_text">（二）问责人员：</view>
+      <view class="need-body" style="text-indent: 3em;"> 集团公司各类各级工作岗位主管（助理）级以上管理人员。</view>
+      <view class="need-body border_text">（三）问责内容：</view>
+      <view class="need-body" style="text-indent: 3em;"> 集团公司所有部门、所有分公司经营过程中所有的生产、调度、营销、采购、仓管、技术开发、车辆维修服务，行政、人事、安全等管理工作及保障服务活动运营缺陷、管理漏洞或不作为行为都列为问责范围。</view>
+      <view class="need-body border_text">（三）问责流程：</view>
+      <view class="need-body" style="text-indent: 3em;"> 1、提交人必须通过OA提供以下材料说明，文字描述、图片、录音等相关证据证明，提交后先由质监部主管领导进行审定，并对提交的相关证据证明进行核查，核查确认事实后1个工作日内，质监部主管领导对此次的问责进行决定，发送给被问责员工，在钉钉上推送问责决定书结果。</view>
+      <view class="need-body" style="text-indent: 3em;"> 2、如有异议被问责人可以申诉，3个工作日内必需提供文字描述、图片、录音等相关证据来证明事实情况（否则视为申诉无效），经集团总经办再次核实决定。在钉钉上推送问责决定书结果。</view>
+      <view class="need-body border_text">（五）问责要求：</view>
+      <view class="need-body">1、工作中每个员工只能对事不能对人。不能弄虚作假，蓄意栽赃，恶意诽谤，有以上行为的属为道德品质问题，查实后予以严惩并作辞退处理。</view>
+      <view class="need-body">2、提交人实事求是反映问题无需顾虑，被问责人不能有打击报复，故意刁难之行为。如再次被问责查实后予以严惩并作辞退处理。</view>
+    
+      <!-- <view class="need-body">处罚并不是公司的目的，规范公司的请假、换班流程才是公司想要的结果，请各位员工自觉遵守公司制度，使公司的OA请假流程能被规范执行(执行日起文本制度与本须知有不符的按本须知执行)。</view> -->
+
+      <view class="need-body left-foot">浙江快捷汽车股份有限公司</view>
+      <!--<checkbox-group class="check-box" onChange="onChange"><label class="checkbox" a:for="{{items}}"><checkbox style="background:{{color}}" value="{{item.value}}"/><text class="checkbox-text">{{item.name}}</text></label></checkbox-group> -->
+    </view>
+    <view class="kuai">
+    </view>
+  </view>
+</scroll-view>
+<view class="button_cl">
+  <button class="submit_form" size="default" onTap="tj" type="primary">{{button_text}}</button>
+  <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="primary">不同意</button> -->
+</view>

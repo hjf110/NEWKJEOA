@@ -1,0 +1,11 @@
+
+<view class='content'  >
+  <canvas class='firstCanvas' id="firstCanvas" onTouchMove='move' onTouchStart='start' onTouchEnd='end' onTouchCancel='cancel' onLongTap='tap' disable-scroll=true></canvas>
+  <view>
+    <button class="button_qm" onTap='clearClick'>重写</button>
+    <button class="button_qm" onTap='saveClick' >确定</button>
+  </view>
+</view>
+<view class="img_show">
+  <image class="img_ok" mode="widthFix" src="{{signImage}}"/>
+</view>

@@ -1,0 +1,64 @@
+
+<!--尿素领用申请页面-->
+<import src="../biz/components/grid/index.axml" />
+<view class="box">
+  <view class="box_2">
+    <form onSubmit="formsubmit">
+      <view class="form_box mar_top">
+        <view class="form_title">{{formtext.ureaNum}}</view>
+        <view class="form_body">
+          <input name="ureaNum" onInput="bindKeyInput" class="form_input" type="phone" placeholder="填写申请尿素数量" value="{{num}}" />
+        </view>
+      </view>
+      <!-- <view class="form_box mar_top" hidden="{{true}}">
+        <view class="form_title">{{formtext.docno}}</view>
+        <view class="form_body">
+          <input name="docno" onInput="bindKeyInput" class="form_input" type="phone" value="201904010001" />
+        </view>
+      </view> -->
+      <view class="form_box mar_top">
+        <!--<button onTap="dw" class="form_button_dw" type="primary">{{formtext.button_dw}}</button> -->
+        <view class="form_title">{{formtext.location}}</view>
+        <view class="form_body">
+          <view class="wz_text">
+            <view style="color:{{color}};">{{weizhi}}</view>
+          </view>
+        </view>
+        <view>
+          <button class="shuaxing" onTap="dianji" type="primary">刷新</button>
+        </view>
+        <input name="location" class="form_dw_input" placeholder="位置" value="{{weizhi}}"  disabled />
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">{{formtext.surUreaNum}}</view>
+        <view class="form_body">
+          <input onInput="cc" name="surUreaNum" class="form_input" type="phone" placeholder="填写剩余尿素数量" />
+        </view>
+      </view>
+      <!--<button class="form_submit" onTap="dw2" type="primary">{{formtext.button_dw}}</button> -->
+      <view class="form_box mar_top ">
+        <view class="form_title">{{formtext.km}}</view>
+        <view class="form_body">
+          <input onInput="bc" name="km" class="form_input" type="phone" placeholder="填写公里数" />
+        </view>
+      </view>
+      <view class=" mar_top back_color">
+        <view class="gl-box">
+          <view class="gl-text">公里数照片</view>
+          <view class="xuanze" onTap="takePhoto">
+          +
+            <!--<image class="image_photo" mode="aspectFit" src="../image/photo.png"/> -->
+          </view>
+          <!--<view class="photo_pai link_child"><view class="img_box" onTap="ylan" a:for="{{imgsrc}}" a:for-index="idx" data-index="{{idx}}"><image class="image_photo" mode="aspectFit" src="{{item}}" /> -->
+          <!--</view> -->
+          <!--<image onTap="ylan" class="image_photo" mode="aspectFit" src="{{item}}" />  -->
+          <!--</view> -->
+          <view>
+            <template is="Grid" data={{...grid}} ></template>
+          </view>
+        </view>
+      </view>
+      <!--<button class="form_submit" size="default" formType="submit" type="primary">{{formtext.button_text}}</button> -->
+    </form>
+  </view>
+</view>

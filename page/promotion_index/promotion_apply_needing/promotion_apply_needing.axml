@@ -1,0 +1,31 @@
+<scroll-view class="need-scroll" scroll-y="true"  onScrollToLower="lower" >
+  <view class="need-body-box">
+    <view class="need-box">
+      <view class="need-title">员工晋升流程须知</view>
+      <view class="need-fu-title">即:岗位工资</view>
+      <view class="need-body">全体员工根据从事岗位的不同分别设定为“管理岗位、话务、调度岗位、技师岗位、业务岗位”，各岗位又分为“实习级、初级、中级（二级、一级）、高级、特级”五个技能等级。技能等级考核要求如下：</view>
+      <view class="need-body">1、所有进入公司的员工前3个月为试用期，3个月后经本人申请、主管部门（分公司）同意可晋级“实习”等级；</view>
+      <view class="need-body">2、“实习”等级满3个月，经本人申请、主管部门（分公司）同意可晋级“初级”等级；</view>
+      <view class="need-body">3、“初级”等级满6个月，经本人申请、主管部门（分公司）同意并考核合格后可晋级“二级”等级；</view>
+      <view class="need-body">4、“二级”等级满1年后，经本人申请、主管部门（分公司）同意并考核合格、总公司批准后可晋级“一级”等级；</view>
+      <view class="need-body">5、“一级”等级满2年后，经本人申请、主管部门（分公司）同意、总公司考核合格批准后可晋级“高级”等级；</view>
+      <view class="need-body">6、“高级”等级满3年后，经本人申请、部门（分公司）同意、总公司考核合格批准后可晋级“特级”等级。</view>
+      <view class="need-body">7、“实习、初级、二级”晋级年限按员工进入公司的实际年限计算；“一级、高级、特级”的晋级，由公司组织在规定的时间统一考核，统一考核时间定在每年的5月份进行，晋级必须达到的年限时间计算到每年的4月30日。</view>
+      <view class="need-body">8、各等级任职过程中，特别优秀的，可由本人申请、部门推荐、不由工龄限制，经公司考核合格，可提前晋级；如发生严重责任过失，造成公司重大损失的，公司可对当事人进行降级处罚。</view>
+      <view class="need-body">9、晋级考核标准另行制定。</view>
+      <view class="need-body left-foot">浙江快捷汽车股份有限公司(及分公司)</view>
+      <!-- <checkbox-group class="check-box" onChange="onChange">
+        <label class="checkbox" a:for="{{items}}">
+          <checkbox style="background:{{color}}" value="{{item.value}}"/>
+          <text class="checkbox-text">{{item.name}}</text>
+        </label>
+      </checkbox-group> -->
+    </view>
+    <view class="kuai">
+    </view>
+  </view>
+  </scroll-view>
+  <view class="button_cl">
+    <button class="submit_form" size="default" onTap="tj" type="primary">{{button_text}}</button>
+    <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="primary">不同意</button> -->
+  </view>

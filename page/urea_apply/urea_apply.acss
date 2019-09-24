@@ -1,0 +1,165 @@
+@import '../biz/components/grid/index.acss';
+
+
+.box {
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  text-align: center;
+}
+
+.box_2 {
+  margin-top: 10px;
+}
+
+.shuaxing {
+  line-height: 40px;
+  height: 40px;
+  width: 50px;
+  position: relative;
+  top: 15rpx;
+  color:white;
+
+}
+
+.title {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 23px;
+}
+
+.form_title {
+  font-size: 15px;
+  width: 150rpx;
+  text-align: center;
+  line-height: 80px;
+}
+
+.form_title, .form_body {
+  float: left;
+}
+
+.form_title {
+  height: 80px;
+}
+
+.form_dw {
+  height: 30px;
+  width: 255rpx;
+}
+
+.form_input {
+  
+  height: 80px;
+  line-height: 80px;
+  width: 500rpx;
+}
+
+.mar_top {
+  /* margin-top: 30px;box_2 */
+  border-bottom:lightblue solid 1px; 
+}
+
+.form_box {
+  display: flex;
+  background: white;
+  width: 100%;
+}
+
+.form_dw_input {
+  width: 95%;
+  font-size: 12px;
+  border: red;
+}
+
+.form_button_dw {
+  height: 34px;
+  width: 200rpx;
+  line-height: 34px;
+  text-align: center;
+  font-size: 15px;
+  /* position:relative;
+   left: 165rpx; */
+}
+
+.form_submit {
+  margin-top: 250rpx;
+  margin-left:10%; 
+  width: 80%;
+ 
+}
+
+.form_dw_input {
+  display: none;
+}
+
+.wz_text {
+  
+  
+  position: relative;
+  top: 30rpx;
+  left: 90rpx;
+  width: 80%;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+/*选择照片按钮样式*/
+
+.xuanze {
+  margin-left: 15rpx;
+  display: inline-block;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 39px;
+  font-size: 60px;
+  color: gray;
+  border: 1px solid gray;
+  position: relative;
+  left: 10px;
+}
+.img_box{
+  width: 50px;
+  height: 50px;
+}
+.image_photo { 
+  width: 80%;
+}
+
+.photo_pai {
+ height: 50px;
+ width: 50px;
+  /* border-radius: 5px; */
+text-align: center;
+  /* border:1px dashed gray; */
+  /* position: relative; */
+  /* left: 10px; */
+}
+
+.back_color {
+  background-color: white;
+  height: 120px;
+  border: none
+}
+
+.take_photo {
+  margin-top: 0;
+  height: 100px;
+}
+
+.b_no{
+  border: none;
+}
+.gl-text{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.gl-box{
+  position: relative;
+  top: 13px;
+}

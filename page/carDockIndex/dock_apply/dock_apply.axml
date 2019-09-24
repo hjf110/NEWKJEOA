@@ -1,0 +1,127 @@
+<view class="page" hidden={{allHidden}} >
+  <form  onSubmit="onSubmit" onReset="onReset">
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">姓    名</view>
+        <view class="form-row-content">
+          <input class="things-values" name="" value="{{name}}" disabled /> 
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <input class="things-values" name="post" value="{{post}}" disabled />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">自车牌照</view>
+        <view class="form-row-content">
+          <input class="things-values" name="licensePlate"  value="{{licensePlate}}" disabled /> 
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form_box mar_top">
+        <view class="form_title  loaction_title">车辆地点</view>
+        <view class="form_body" style="width:65%">
+          <view class="wz_text ">
+            <view class=" loaction_content">{{accidentLocation}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <picker onChange="onChange" value="{{acvalue}}" range="{{list}}" range-key="{{item}}">
+        <view class="form-row">
+          <view class="form-row-label">事故发生地</view>
+          <view class="form-row-content" style="margin-left: 0.85rem;">
+            <view class="input-value">{{list[acvalue]}}</view>
+          </view>
+          <view class="row-extra">(当前选择)</view>
+        </view>
+      </picker>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">客户单位</view>
+        <view class="form-row-content">
+          <input class="things-values" name="customerUnit" placeholder="请输入" />
+        </view>
+      </view>
+    </view>
+     
+    <view>
+      <view class="body_img">
+        <view class="img_title">
+            事故车车架号照片
+        </view>
+        <view class="nsimg">
+          <view class="imgbox" a:for="{{carFrameNumberPicShow}}" a:for-index="idx">
+            <image onTap="yl" data-index="{{idx}}" data-imglist="{{carFrameNumberPicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+            <view style="display:inline">
+              <image onTap="delect1" data-index="{{idx}}" data-vala="{{carFrameNumberPic}}" data-valb="{{carFrameNumberPicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+            </view>
+          </view>
+          <view onTap="takePhoto1" class="jia" data-vala="{{carFrameNumberPic}}" data-valb="{{carFrameNumberPicShow}}" data-type="a1">
+            <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+          </view>
+          <view style='clear:both'></view>
+        </view>
+      </view>
+      <view class="bian"></view>
+    </view>
+
+    <view>
+      <view class="body_img">
+        <view class="img_title">
+            事故车全景照片
+        </view>
+        <view class="nsimg">
+          <view class="imgbox" a:for="{{carPanoramaPicShow}}" a:for-index="idx">
+            <image onTap="yl" data-index="{{idx}}" data-imglist="{{carPanoramaPicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+            <view style="display:inline">
+              <image onTap="delect2" data-index="{{idx}}" data-vala="{{carPanoramaPic}}" data-valb="{{carPanoramaPicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+            </view>
+          </view>
+          <view onTap="takePhoto2" class="jia" data-vala="{{carPanoramaPic}}" data-valb="{{carPanoramaPicShow}}" data-type="a1">
+            <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+          </view>
+          <view style='clear:both'></view>
+        </view>
+      </view>
+      <view class="bian"></view>
+    </view>
+    
+    <view>
+      <view class="body_img">
+        <view class="img_title">
+            事故车受损部位照片
+        </view>
+        <view class="nsimg">
+          <view class="imgbox" a:for="{{carProblemPicShow}}" a:for-index="idx">
+            <image onTap="yl" data-index="{{idx}}" data-imglist="{{carProblemPicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+            <view style="display:inline">
+              <image onTap="delect3" data-index="{{idx}}" data-vala="{{carProblemPic}}" data-valb="{{carProblemPicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+            </view>
+          </view>
+          <view onTap="takePhoto3" class="jia" data-vala="{{carProblemPic}}" data-valb="{{carProblemPicShow}}" data-type="a1">
+            <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+          </view>
+          <view style='clear:both'></view>
+        </view>
+      </view>
+      <view class="bian"></view>
+    </view>
+
+    <view >
+      <button loading={{submitLoading}} class="submit_form" formType="submit" size="default" type="primary">确认提交</button>
+      <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="default">不同意</button> -->
+    </view>
+
+  </form>
+</view>
+

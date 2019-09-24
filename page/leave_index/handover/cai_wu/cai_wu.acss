@@ -1,0 +1,13 @@
+.body_img {
+  width: 100%;
+  margin-left: 0%;
+}
+
+.bian {
+  width: 100%;
+  margin-left: 0%;
+}
+
+.jia-jia {
+  top:-5rpx;
+}

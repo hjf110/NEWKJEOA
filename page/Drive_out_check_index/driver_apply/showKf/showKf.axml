@@ -1,0 +1,50 @@
+<form >
+  <!-- 第一步申请信息////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <view class="box">
+    <view class="box_2">
+      <view class="form_box mar_top" hidden={{cp}} >
+        <view class="form_title">车牌</view>
+        <view class="form_body">
+          <view class="form_input">{{licensePlate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">被处理人</view>
+        <view class="form_body">
+          <view class="form_input">{{beiUser}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">处罚时间</view>
+        <view class="form_body">
+          <view class="form_input">{{deductTime}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">扣的分数</view>
+        <view class="form_body">
+          <view class="form_input">{{feng}}</view>
+        </view>
+      </view>
+      <view>
+        <view class="form_box mar_top">
+          <view class="form_title yj">处理意见</view>
+          <view class="form_body">
+            <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+              <view class="text_self">{{handlingOpinions}}</view>
+            </scroll-view>
+            <view class="text_title">执行人:{{zxUser}}</view>
+            <view class="text_title_2">时间:{{zxTime}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="kuai">
+      </view>
+      <view class="button_cl">
+        <!--<button onTap="no_tj" class="form_submit" size="default" type="primary">上一步</button> -->
+        <!--<button onTap="one_next" class="form_submit" size="default" type="primary">下一步</button> -->
+        <button class="submit_form" onTap="one_next" size="default" type="primary">返回</button>
+      </view>
+    </view>
+  </view>
+</form>

@@ -1,0 +1,175 @@
+<!--晋升申请页面-->
+<view class="box">
+  <view class="box_2">
+    <form onSubmit="formsubmit">
+      <view class="form_box mar_top">
+        <view class="form_title">姓名</view>
+        <view class="form_body">
+          <view class="form_input">{{name}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">性别</view>
+        <view class="form_body">
+          <view class="form_input">{{sex}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">籍贯</view>
+        <view class="form_body">
+          <view class="form_input">{{nativePlace}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">出生年月</view>
+        <view class="form_body">
+          <view class="form_input">{{birthday}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">学历</view>
+        <view class="form_body">
+          <view class="form_input">{{education}}</view>
+        </view>
+      </view>
+      <!--<view class="form_box mar_top"><view class="form_title">专业</view><view class="form_body"><view class="form_input">{{major}}</view></view></view> -->
+      <!--<view class="form_box mar_top"><view class="form_title">毕业学校</view><view class="form_body"><view class="form_input">{{graduateSchool}}</view></view></view><view class="form_box mar_top"><view class="form_title">毕业时间</view><view class="form_body"><view class="form_input">{{graduateTime}}</view></view></view> -->
+      <view class="form_box mar_top">
+        <view class="form_title">入职时间</view>
+        <view class="form_body">
+          <view class="form_input">{{hiredate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">在职年限</view>
+        <view class="form_body">
+          <view class="form_input">{{workingSeniority}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">现岗位</view>
+        <view class="form_body">
+          <view class="form_input">{{post}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">现级别</view>
+        <view class="form_body">
+          <view class="form_input">{{level}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">申请岗位</view>
+        <view class="form_body">
+          <view class="form_input">{{application}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title yj">自我评价</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">
+               {{selfAssessment}}
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title yj">直属部门审批</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{departmentalOpinion}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{decideUser}}</view>
+          <view class="text_title_2">时间:{{decideDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{cw}}>
+        <view class="form_title yj">财务部意见</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{finance}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{financeUser}}</view>
+          <view class="text_title_2">时间:{{financeDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{zj}} >
+        <view class="form_title yj">质监部意见</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{qs}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{qsUser}}</view>
+          <view class="text_title_2">时间:{{qsDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{rs}} >
+        <view class="form_title yj">综合部意见</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{hr}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{hrUser}}</view>
+          <view class="text_title_2">时间:{{hrDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{cg}}>
+        <view class="form_title yj">车管部意见</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{vm}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{vmUser}}</view>
+          <view class="text_title_2">时间:{{vmDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{hang}}>
+        <view class="form_title yj">杭州公司意见</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{hangzhou}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{hangzhouUser}}</view>
+          <view class="text_title_2">时间:{{hangzhouDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{hu}}>
+        <view class="form_title yj">湖州公司意见</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{huzhou}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{huzhouUser}}</view>
+          <view class="text_title_2">时间:{{huzhouDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{fz}}>
+        <view class="form_title yj">副总经理审批</view>
+        <view class="form_body">
+          <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+            <view class="text_self">{{vgm}}</view>
+          </scroll-view>
+          <view class="text_title">审批人:{{vgmUser}}</view>
+          <view class="text_title_2">时间:{{vgmDate}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top" hidden={{zh}} >
+        <view class="form_title yj">填写意见</view>
+        <view class="form_body">
+          <view class="form_input">
+            <textarea name="pj" class="yijian" placeholder="请输入" maxlength="140" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+          </view>
+        </view>
+      </view>
+      <view class="kuai">
+      </view>
+      <view class="button_cl" hidden={{zh}} >
+        <!--<button class="submit_form" size="default" onTap="tj" type="primary">确认提交</button> -->
+        <button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button>
+        <button onTap="no_tj" class="form_submit" size="default" type="default">不同意</button>
+      </view>
+      <!--<button class="form_submit" onTap="dw2" type="primary">{{formtext.button_dw}}</button> -->
+    </form>
+  </view>
+</view>

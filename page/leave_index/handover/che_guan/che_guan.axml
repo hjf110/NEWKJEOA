@@ -1,0 +1,78 @@
+<view class="page" hidden={{allHidden}}   >
+  <view class="page-section" style="margin-top:20rpx">
+    <view class="form-row">
+      <view class="form-row-label">姓名</view>
+      <view class="form-row-content">
+        <view class="things-value">{{name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="page-section" style="margin-top:20rpx">
+    <view class="form-row">
+      <view class="form-row-label">停放时间</view>
+      <view class="form-row-content">
+        <view class="things-value">{{time}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="page-section" style="margin-top:20rpx">
+    <view class="form-row" style="height:1.88rem;">
+      <view class="form-row-label">定位</view>
+      <view class="form-row-content">
+        <view class="things-value">{{vehicleLocation}}</view>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class="body_img">
+      <view class="img_title">
+            车辆停放完毕拍照
+      </view>
+      <view class="nsimg">
+        <view class="imgbox" a:for="{{vehiclePicShow}}" a:for-index="idx">
+          <image onTap="yl" data-index="{{idx}}" data-imglist="{{vehiclePicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+          <view style="display:inline" hidden={{finish}}>
+            <image onTap="delect" data-index="{{idx}}" data-vala="{{vehiclePic}}" data-valb="{{vehiclePicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+          </view>
+        </view>
+        <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{vehiclePic}}" data-valb="{{vehiclePicShow}}" data-type="a1">
+          <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+        </view>
+        <view style='clear:both'></view>
+      </view>
+    </view>
+    <view class="bian"></view>
+  </view>
+  <view class="section" hidden=true >
+    <button style="background:red;color:white;" type="default" onTap="to_qz">让车管点击签字</button>
+  </view>
+  <view class="page-section" style="margin-top:20rpx" hidden=true >
+    <view class="form-row">
+      <view class="form-row-label">财务签字:</view>
+      <view class="form-row-content">
+        <view class="things-value">
+          <image class="qz_img folat" mode="widthFix" src="{{signImage}}"/></view>
+      </view>
+    </view>
+  </view>
+  <view class="kuai">
+  </view>
+  <!--<view class="page-section" style="margin-top:20rpx"><image class="qz_img folat" mode="widthFix" src="{{signImage}}"/></view> -->
+  <view class="button_cl" hidden={{finish}} >
+    <button class="submit_form" size="default" type="primary" loading={{submitLoad}} onTap="ok_tj">确定</button>
+  </view>
+  <view class="button_cl" hidden={{back}} >
+    <button class="submit_form" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+  </view>
+</view>
+<!--签字弹窗 -->
+<!--<image mode="scaleToFill" src=""/> -->
+<view class='content' hidden={{is_hidden}} >
+  <canvas class='firstCanvas' id="firstCanvas" onTouchMove='move' onTouchStart='start' onTouchEnd='end' onTouchCancel='cancel' onLongTap='tap' disable-scroll=true></canvas>
+  <view>
+    <button class="button_qm" onTap='clearClick'>重写</button>
+    <button class="button_qm" onTap='saveClick' >确定</button>
+  </view>
+</view>
+<!--遮罩-->
+<view class="zz" hidden={{is_hidden}} onTap="closeZZ"></view>

@@ -1,0 +1,11 @@
+page {
+  background-color: white;
+
+}
+.border_text{
+  font-weight: bolder;
+}
+.red_text{
+  font-weight: bolder;
+ 
+}

@@ -1,0 +1,39 @@
+
+.content {
+  z-index: 10;
+  background: #F0F0F0;
+  position: fixed;
+  
+  top: 0;
+  width: 99%;
+  height: 660rpx;
+  border-top: 1px solid #BEBEBE;
+  border-bottom: 1px solid #BEBEBE;
+}
+
+.firstCanvas {
+  background-color: #FCFCFC;
+  margin-top: 6px;
+  margin-left: 1.5%;
+  border: 1px dashed #E0E0E0;
+  border-radius: 5px;
+  width: 96%;
+  height: 240px;
+}
+
+.button_qm {
+  margin-left: 13%;
+  width: 30%;
+  float: left;
+}
+
+.img_show{
+  width: 100%;
+   position: fixed;
+   bottom: 0;
+}
+.img_ok{
+  width: 90%;
+  position: relative;
+  left: 5%;
+}

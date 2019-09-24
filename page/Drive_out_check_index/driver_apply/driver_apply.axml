@@ -1,0 +1,1310 @@
+<scroll-view scroll-top="{{scrollTop}}">
+  <form onSubmit="{{formFuntion}}">
+    <!-- 第一步申请信息////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{one_show}}>
+      <view class="box_2">
+        <view class="form_box mar_top">
+          <view class="form_title">姓名</view>
+          <view hidden={{finish}} class="form_body">
+            <view class="form_input">{{d_name}}</view>
+            <!--<input class="form_input form_input_text" type="text" placeholder="" value="{{d_name}}" /> -->
+          </view>
+          <view hidden=true class="form_body">
+            <input class="form_input form_input_text" type="text" placeholder="" value="{{d_name}}" />
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{d_name}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{d_name}}</view>
+          </view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">检查时间</view>
+          <view hidden={{finish}} class="form_body">
+            <view class="form_input">{{now_time}}</view>
+          </view>
+          <view hidden=true class="form_body">
+            <input name="systemTime" class="form_input form_input_text" type="text" placeholder="" value="{{now_time}}" />
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{now_time}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{now_time}}</view>
+          </view>
+        </view>
+        <view class="form_box mar_top">
+          <!--<button onTap="dw" class="form_button_dw" type="primary">{{formtext.button_dw}}</button> -->
+          <view class="form_title">位置</view>
+          <view class="form_body">
+            <view class="wz_text">
+              <view>{{address}}</view>
+            </view>
+          </view>
+          <view hidden={{finish}} >
+            <!--<button class="shuaxing" onTap="dianji" type="primary">刷新</button> -->
+          </view>
+          <input name="location" class="form_dw_input" placeholder="位置" value="{{address}}"  disabled />
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">车牌号</view>
+          <view hidden={{finish}} class="form_body">
+            <view class="form_input">{{License_plate}}</view>
+          </view>
+          <view hidden=true class="form_body">
+            <input name="licensePlate" onInput="License_plate_value" onBlur="check_License_plate" class="form_input form_input_text" type="text" placeholder="" value="{{License_plate}}" />
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{License_plate}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{License_plate}}</view>
+          </view>
+        </view>
+        <view class="kuai">
+        </view>
+        <view class="button_cl" hidden={{is_next}} >
+          <!--<button onTap="no_tj" class="form_submit" size="default" type="primary">上一步</button> -->
+          <!--<button onTap="one_next" class="form_submit" size="default" type="primary">下一步</button> -->
+          <button class="submit_form" onTap="one_next" size="default" onTap="tj" type="primary">{{next}}</button>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 左前填写信息/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{left_top_show}}>
+      <view class="box_title">左侧机舱内检查项目</view>
+      <view class="box_2">
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            左前轮
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{left_front_wheel_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{left_front_wheel_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{left_front_wheel}}" data-valb="{{left_front_wheel_showList}}" data-type="z1" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{left_front_wheel}}" data-valb="{{left_front_wheel_showList}}" data-type="z1">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            机油标尺
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{dipstick_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{dipstick_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{dipstick}}" data-valb="{{dipstick_showList}}" data-type="z2" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{dipstick}}" data-valb="{{dipstick_showList}}" data-type="z2">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            皮带松紧度
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{belt_tightness_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{belt_tightness_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{belt_tightness}}" data-valb="{{belt_tightness_showList}}" data-type="z3" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{belt_tightness}}" data-valb="{{belt_tightness_showList}}" data-type="z3">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            冷却液高度
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{coolant_height_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{coolant_height_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{coolant_height}}" data-valb="{{coolant_height_showList}}" data-type="z4" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{coolant_height}}" data-valb="{{coolant_height_showList}}" data-type="z4">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            机舱漏油情况
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{oil_leak_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{oil_leak_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{oil_leak}}" data-valb="{{oil_leak_showList}}" data-type="z5" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{oil_leak}}" data-valb="{{oil_leak_showList}}" data-type="z5">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">有无问题</view>
+          <view hidden={{finish}} class="form_body">
+            <radio-group class="radio-group" onChange="left_top_problem_click">
+              <label class="radio" a:for="{{items}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+              </label>
+            </radio-group>
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{left_top_problem_type}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{left_top_problem_type}}</view>
+          </view>
+        </view>
+        <view hidden={{left_top_problem_write}}>
+          <view class="form_box mar_top">
+            <view class="form_title yj">问题描述</view>
+            <view hidden={{finish}} class="form_body">
+              <view class="form_input">
+                <textarea name="oneProblem" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+              </view>
+            </view>
+            <view hidden={{back}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{left_top_problem_text}}</view>
+              </scroll-view>
+            </view>
+            <view hidden={{handle}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{left_top_problem_text}}</view>
+              </scroll-view>
+            </view>
+          </view>
+          <view>
+            <view class="body_img">
+              <view class="img_title">
+            补充问题部位照片
+              </view>
+              <view class="nsimg">
+                <view class="imgbox" a:for="{{one_problem_showList}}" a:for-index="idx">
+                  <image onTap="yl" data-index="{{idx}}" data-imglist="{{one_problem_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                  <view style="display:inline" hidden={{finish}}>
+                    <image onTap="delect" data-index="{{idx}}" data-vala="{{one_problem}}" data-valb="{{one_problem_showList}}" data-type="zz6" class="img_close" mode="widthFix" src="/image/close.png" />
+                  </view>
+                </view>
+                <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{one_problem}}" data-valb="{{one_problem_showList}}" data-type="zz6">
+                  <text class="jia-jia">+</text>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view>
+            <view class="bian"></view>
+          </view>
+          <view hidden={{back}} >
+            <view class="form_box mar_top" hidden={{oneHandlingOpinions_type}} >
+              <view class="form_title yj">部门意见</view>
+              <view class="form_body">
+                <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                  <view class="text_self">{{oneHandlingOpinions}}</view>
+                </scroll-view>
+                <view class="text_title">审批人:{{vmUser}}</view>
+                <view class="text_title_2">时间:{{vmDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden={{handle}} >
+          <view class="form_box mar_top">
+            <view class="form_title yj">处理意见</view>
+            <view class="form_body">
+              <view class="form_input">
+                <textarea name="oneHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="kuai">
+        </view>
+        <view class="button_cl">
+          <button onTap="left_top_pre" class="form_submit" size="default" type="default">{{pre}}</button>
+          <button onTap="left_top_next" class="form_submit" size="default" type="primary">{{next}}</button>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 左后填写信息///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{left_bottom_show}}>
+      <view class="box_title">左侧后部检查项目</view>
+      <view class="box_2">
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            左后轮
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{left_rear_wheel_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{left_rear_wheel_showList}}" data-type="a1" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{left_rear_wheel}}" data-valb="{{left_rear_wheel_showList}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{left_rear_wheel}}" data-valb="{{left_rear_wheel_showList}}" data-type="a1">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+          辅助轮
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{left_rear_auxiliary_wheel_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{left_rear_auxiliary_wheel_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{left_rear_auxiliary_wheel}}" data-valb="{{left_rear_auxiliary_wheel_showList}}" data-type="a2" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{left_rear_auxiliary_wheel}}" data-valb="{{left_rear_auxiliary_wheel_showList}}" data-type="a2">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+          传动轴
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{left_transmission_shaft_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{left_transmission_shaft_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{left_transmission_shaft}}" data-valb="{{left_transmission_shaft_showList}}" data-type="a3" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{left_transmission_shaft}}" data-valb="{{left_transmission_shaft_showList}}" data-type="a3">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            后牌照
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{rear_license_plate_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{rear_license_plate_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{rear_license_plate}}" data-valb="{{rear_license_plate_showList}}" data-type="a4" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{rear_license_plate}}" data-valb="{{rear_license_plate_showList}}" data-type="a4">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">有无问题</view>
+          <view hidden={{finish}} class="form_body">
+            <radio-group class="radio-group" onChange="left_bottom_problem_click">
+              <label class="radio" a:for="{{items}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+              </label>
+            </radio-group>
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{left_bottom_problem_type}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{left_bottom_problem_type}}</view>
+          </view>
+        </view>
+        <view hidden={{left_bottom_problem_write}}>
+          <view class="form_box mar_top">
+            <view class="form_title yj">问题描述</view>
+            <view hidden={{finish}} class="form_body">
+              <view class="form_input">
+                <textarea name="twoProblem" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+              </view>
+            </view>
+            <view hidden={{back}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{left_bottom_problem_text}}</view>
+              </scroll-view>
+            </view>
+            <view hidden={{handle}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{left_bottom_problem_text}}</view>
+              </scroll-view>
+            </view>
+          </view>
+          <view>
+            <view class="body_img">
+              <view class="img_title">
+            补充问题部位照片
+              </view>
+              <view class="nsimg">
+                <view class="imgbox" a:for="{{two_pic_showList}}" a:for-index="idx">
+                  <image onTap="yl" data-index="{{idx}}" data-imglist="{{two_pic_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                  <view style="display:inline" hidden={{finish}}>
+                    <image onTap="delect" data-index="{{idx}}" data-vala="{{two_pic}}" data-valb="{{two_pic_showList}}" data-type="aa5" class="img_close" mode="widthFix" src="/image/close.png" />
+                  </view>
+                </view>
+                <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{two_pic}}" data-valb="{{two_pic_showList}}" data-type="aa5">
+                  <text class="jia-jia">+</text>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view>
+            <view class="bian"></view>
+          </view>
+          <view hidden={{back}} >
+            <view class="form_box mar_top" hidden={{twoHandlingOpinions_type}} >
+              <view class="form_title yj">部门意见</view>
+              <view class="form_body">
+                <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                  <view class="text_self">{{twoHandlingOpinions}}</view>
+                </scroll-view>
+                <view class="text_title">审批人:{{vmUser}}</view>
+                <view class="text_title_2">时间:{{vmDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden={{handle}} >
+          <view class="form_box mar_top">
+            <view class="form_title yj">处理意见</view>
+            <view class="form_body">
+              <view class="form_input">
+                <textarea name="twoHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="kuai">
+        </view>
+        <view class="button_cl">
+          <button onTap="left_bottom_pre" class="form_submit" size="default" type="default">{{pre}}</button>
+          <button onTap="left_bottom_next" class="form_submit" size="default" type="primary">{{next}}</button>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 右后填写信息////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{right_bottom_show}}>
+      <view class="box_title">右侧后部检查项目</view>
+      <view class="box_2">
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            右后轮
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{right_rear_wheel_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{right_rear_wheel_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{right_rear_wheel}}" data-valb="{{right_rear_wheel_showList}}" data-type="b1" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{right_rear_wheel}}" data-valb="{{right_rear_wheel_showList}}" data-type="b1">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+         传动轴
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{right_transmission_shaft_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{right_transmission_shaft_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{right_transmission_shaft}}" data-valb="{{right_transmission_shaft_showList}}" data-type="b2" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{right_transmission_shaft}}" data-valb="{{right_transmission_shaft_showList}}" data-type="b2">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+       辅助轮
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{right_rear_auxiliary_wheel_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{right_rear_auxiliary_wheel_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{right_rear_auxiliary_wheel}}" data-valb="{{right_rear_auxiliary_wheel_showList}}" data-type="b3" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{right_rear_auxiliary_wheel}}" data-valb="{{right_rear_auxiliary_wheel_showList}}" data-type="b3">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">有无问题</view>
+          <view hidden={{finish}} class="form_body">
+            <radio-group class="radio-group" onChange="right_bottom_problem_click">
+              <label class="radio" a:for="{{items}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+              </label>
+            </radio-group>
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{right_bottom_problem_type}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{right_bottom_problem_type}}</view>
+          </view>
+        </view>
+        <view hidden={{right_bottom_problem_write}}>
+          <view class="form_box mar_top">
+            <view class="form_title yj">问题描述</view>
+            <view hidden={{finish}} class="form_body">
+              <view class="form_input">
+                <textarea name="threeProblem" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+              </view>
+            </view>
+            <view hidden={{back}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{right_bottom_problem_text}}</view>
+              </scroll-view>
+            </view>
+            <view hidden={{handle}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{right_bottom_problem_text}}</view>
+              </scroll-view>
+            </view>
+          </view>
+          <view>
+            <view class="body_img">
+              <view class="img_title">
+            补充问题部位照片
+              </view>
+              <view class="nsimg">
+                <view class="imgbox" a:for="{{three_pic_showList}}" a:for-index="idx">
+                  <image onTap="yl" data-index="{{idx}}" data-imglist="{{three_pic_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                  <view style="display:inline" hidden={{finish}}>
+                    <image onTap="delect" data-index="{{idx}}" data-vala="{{three_pic}}" data-valb="{{three_pic_showList}}" data-type="bb4" class="img_close" mode="widthFix" src="/image/close.png" />
+                  </view>
+                </view>
+                <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{three_pic}}" data-valb="{{three_pic_showList}}" data-type="bb4">
+                  <text class="jia-jia">+</text>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view>
+            <view class="bian"></view>
+          </view>
+          <view hidden={{back}} >
+            <view class="form_box mar_top" hidden={{threeHandlingOpinions_type}} >
+              <view class="form_title yj">部门意见</view>
+              <view class="form_body">
+                <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                  <view class="text_self">{{threeHandlingOpinions}}</view>
+                </scroll-view>
+                <view class="text_title">审批人:{{vmUser}}</view>
+                <view class="text_title_2">时间:{{vmDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden={{handle}} >
+          <view class="form_box mar_top">
+            <view class="form_title yj">处理意见</view>
+            <view class="form_body">
+              <view class="form_input">
+                <textarea name="threeHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="kuai">
+        </view>
+        <view class="button_cl">
+          <button onTap="right_bottom_pre" class="form_submit" size="default" type="default">{{pre}}</button>
+          <button onTap="right_bottom_next" class="form_submit" size="default" type="primary">{{next}}</button>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 右前填写信息////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{right_top_show}}>
+      <view class="box_title">右侧前脸检查项目</view>
+      <view class="box_2">
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            右前轮
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{right_front_wheel_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{right_front_wheel_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{right_front_wheel}}" data-valb="{{right_front_wheel_showList}}" data-type="c1" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{right_front_wheel}}" data-valb="{{right_front_wheel_showList}}" data-type="c1">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            前车牌
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{front_license_plate_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{front_license_plate_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{front_license_plate}}" data-valb="{{front_license_plate_showList}}" data-type="c2" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{front_license_plate}}" data-valb="{{front_license_plate_showList}}" data-type="c2">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            雨刷
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{wiper_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{wiper_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{wiper}}" data-valb="{{wiper_showList}}" data-type="c3" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{wiper}}" data-valb="{{wiper_showList}}" data-type="c3">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">有无问题</view>
+          <view hidden={{finish}} class="form_body">
+            <radio-group class="radio-group" onChange="right_top_problem_click">
+              <label class="radio" a:for="{{items}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+              </label>
+            </radio-group>
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{right_top_problem_type}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{right_top_problem_type}}</view>
+          </view>
+        </view>
+        <view hidden={{right_top_problem_write}}>
+          <view class="form_box mar_top">
+            <view class="form_title yj">问题描述</view>
+            <view hidden={{finish}} class="form_body">
+              <view class="form_input">
+                <textarea name="fourProblem" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+              </view>
+            </view>
+            <view hidden={{back}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{right_top_problem_text}}</view>
+              </scroll-view>
+            </view>
+            <view hidden={{handle}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{right_top_problem_text}}</view>
+              </scroll-view>
+            </view>
+          </view>
+          <view>
+            <view class="body_img">
+              <view class="img_title">
+            补充问题部位照片
+              </view>
+              <view class="nsimg">
+                <view class="imgbox" a:for="{{four_pic_showList}}" a:for-index="idx">
+                  <image onTap="yl" data-index="{{idx}}" data-imglist="{{four_pic_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                  <view style="display:inline" hidden={{finish}}>
+                    <image onTap="delect" data-index="{{idx}}" data-vala="{{four_pic}}" data-valb="{{four_pic_showList}}" data-type="cc4" class="img_close" mode="widthFix" src="/image/close.png" />
+                  </view>
+                </view>
+                <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{four_pic}}" data-valb="{{four_pic_showList}}" data-type="cc4">
+                  <text class="jia-jia">+</text>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view>
+            <view class="bian"></view>
+          </view>
+          <view hidden={{back}} >
+            <view class="form_box mar_top" hidden={{fourHandlingOpinions_type}} >
+              <view class="form_title yj">部门意见</view>
+              <view class="form_body">
+                <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                  <view class="text_self">{{fourHandlingOpinions}}</view>
+                </scroll-view>
+                <view class="text_title">审批人:{{vmUser}}</view>
+                <view class="text_title_2">时间:{{vmDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden={{handle}} >
+          <view class="form_box mar_top">
+            <view class="form_title yj">处理意见</view>
+            <view class="form_body">
+              <view class="form_input">
+                <textarea name="fourHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="kuai">
+      </view>
+      <view class="button_cl">
+        <button onTap="right_top_pre" class="form_submit" size="default" type="default">{{pre}}</button>
+        <button onTap="right_top_next" class="form_submit" size="default" type="primary">{{next}}</button>
+      </view>
+    </view>
+    </view>
+    <!--  -->
+    <!-- 工具箱一填写信息////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{tool_one_show}}>
+      <view class="box_title">{{tool_type}}工具箱内检查项目</view>
+      <view class="box_2">
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            千斤顶
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{lifting_jack_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{lifting_jack_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{lifting_jack}}" data-valb="{{lifting_jack_showList}}" data-type="d1" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{lifting_jack}}" data-valb="{{lifting_jack_showList}}" data-type="d1">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            十字套筒
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{cross_sleeve_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{cross_sleeve_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{cross_sleeve}}" data-valb="{{cross_sleeve_showList}}" data-type="d2" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{cross_sleeve}}" data-valb="{{cross_sleeve_showList}}" data-type="d2">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            搭电线
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{wiring_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{wiring_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{wiring}}" data-valb="{{wiring_showList}}" data-type="d3" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{wiring}}" data-valb="{{wiring_showList}}" data-type="d3">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+          大绑带
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{big_band_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{big_band_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{big_band}}" data-valb="{{big_band_showList}}" data-type="d4" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{big_band}}" data-valb="{{big_band_showList}}" data-type="d4">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+          小绑带
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{small_band_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{small_band_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{small_band}}" data-valb="{{small_band_showList}}" data-type="d5" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{small_band}}" data-valb="{{small_band_showList}}" data-type="d5">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">有无问题</view>
+          <view hidden={{finish}} class="form_body">
+            <radio-group class="radio-group" onChange="tool_one_problem_click">
+              <label class="radio" a:for="{{items}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+              </label>
+            </radio-group>
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{tool_one_problem_type}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{tool_one_problem_type}}</view>
+          </view>
+        </view>
+        <view hidden={{tool_one_problem_write}}>
+          <view class="form_box mar_top">
+            <view class="form_title yj">问题描述</view>
+            <view hidden={{finish}} class="form_body">
+              <view class="form_input">
+                <textarea name="fiveProblem" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+              </view>
+            </view>
+            <view hidden={{back}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{tool_one_problem_text}}</view>
+              </scroll-view>
+            </view>
+            <view hidden={{handle}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{tool_one_problem_text}}</view>
+              </scroll-view>
+            </view>
+          </view>
+          <view>
+            <view class="body_img">
+              <view class="img_title">
+            补充问题部位照片
+              </view>
+              <view class="nsimg">
+                <view class="imgbox" a:for="{{five_pic_showList}}" a:for-index="idx">
+                  <image onTap="yl" data-index="{{idx}}" data-imglist="{{five_pic_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                  <view style="display:inline" hidden={{finish}}>
+                    <image onTap="delect" data-index="{{idx}}" data-vala="{{five_pic}}" data-valb="{{five_pic_showList}}" data-type="dd6" class="img_close" mode="widthFix" src="/image/close.png" />
+                  </view>
+                </view>
+                <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{five_pic}}" data-valb="{{five_pic_showList}}" data-type="dd6">
+                  <text class="jia-jia">+</text>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view>
+            <view class="bian"></view>
+          </view>
+          <view hidden={{back}} >
+            <view class="form_box mar_top" hidden={{fiveHandlingOpinions_type}} >
+              <view class="form_title yj">部门意见</view>
+              <view class="form_body">
+                <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                  <view class="text_self">{{fiveHandlingOpinions}}</view>
+                </scroll-view>
+                <view class="text_title">审批人:{{vmUser}}</view>
+                <view class="text_title_2">时间:{{vmDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden={{handle}} >
+          <view class="form_box mar_top">
+            <view class="form_title yj">处理意见</view>
+            <view class="form_body">
+              <view class="form_input">
+                <textarea name="fiveHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="kuai">
+        </view>
+        <view class="button_cl">
+          <button onTap="tool_one_pre" class="form_submit" size="default" type="default">{{pre}}</button>
+          <button onTap="tool_one_next" class="form_submit" size="default" type="primary">{{next}}</button>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 工具箱二填写信息////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{tool_two_show}}>
+      <view class="box_title">右侧工具箱内检查项目</view>
+      <view class="box_2">
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            千斤顶
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{v_lifting_jack_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{v_lifting_jack_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{v_lifting_jack}}" data-valb="{{v_lifting_jack_showList}}" data-type="e1" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{v_lifting_jack}}" data-valb="{{v_lifting_jack_showList}}" data-type="e1">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            十字套筒
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{v_cross_sleeve_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{v_cross_sleeve_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{v_cross_sleeve}}" data-valb="{{v_cross_sleeve_showList}}" data-type="e2" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{v_cross_sleeve}}" data-valb="{{v_cross_sleeve_showList}}" data-type="e2">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            搭电线
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{v_wiring_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{v_wiring_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{v_wiring}}" data-valb="{{v_wiring_showList}}" data-type="e3" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{v_wiring}}" data-valb="{{v_wiring_showList}}" data-type="e3">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+          大绑带
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{v_big_band_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{v_big_band_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{v_big_band}}" data-valb="{{v_big_band_showList}}" data-type="e4" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{v_big_band}}" data-valb="{{v_big_band_showList}}" data-type="e4">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view hidden={{is_small_car}} >
+          <view class="body_img">
+            <view class="img_title">
+          小绑带
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{v_small_band_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{v_small_band_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{v_small_band}}" data-valb="{{v_small_band_showList}}" data-type="e5" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{v_small_band}}" data-valb="{{v_small_band_showList}}" data-type="e5">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">有无问题</view>
+          <view hidden={{finish}} class="form_body">
+            <radio-group class="radio-group" onChange="tool_two_problem_click">
+              <label class="radio" a:for="{{items}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+              </label>
+            </radio-group>
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{tool_two_problem_type}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{tool_two_problem_type}}</view>
+          </view>
+        </view>
+        <view hidden={{tool_two_problem_write}}>
+          <view class="form_box mar_top">
+            <view class="form_title yj">问题描述</view>
+            <view hidden={{finish}} class="form_body">
+              <view class="form_input">
+                <textarea name="sevenProblem" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+              </view>
+            </view>
+            <view hidden={{back}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{tool_two_problem_text}}</view>
+              </scroll-view>
+            </view>
+            <view hidden={{handle}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{tool_two_problem_text}}</view>
+              </scroll-view>
+            </view>
+          </view>
+          <view>
+            <view class="body_img">
+              <view class="img_title">
+            补充问题部位照片
+              </view>
+              <view class="nsimg">
+                <view class="imgbox" a:for="{{v_five_pic_showList}}" a:for-index="idx">
+                  <image onTap="yl" data-index="{{idx}}" data-imglist="{{v_five_pic_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                  <view style="display:inline" hidden={{finish}}>
+                    <image onTap="delect" data-index="{{idx}}" data-vala="{{v_five_pic}}" data-valb="{{v_five_pic_showList}}" data-type="ee6" class="img_close" mode="widthFix" src="/image/close.png" />
+                  </view>
+                </view>
+                <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{v_five_pic}}" data-valb="{{v_five_pic_showList}}" data-type="ee6">
+                  <text class="jia-jia">+</text>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view>
+            <view class="bian"></view>
+          </view>
+          <view hidden={{back}} >
+            <view class="form_box mar_top" hidden={{sevenHandlingOpinions_type}} >
+              <view class="form_title yj">部门意见</view>
+              <view class="form_body">
+                <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                  <view class="text_self">{{sevenHandlingOpinions}}</view>
+                </scroll-view>
+                <view class="text_title">审批人:{{vmUser}}</view>
+                <view class="text_title_2">时间:{{vmDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden={{handle}} >
+          <view class="form_box mar_top">
+            <view class="form_title yj">处理意见</view>
+            <view class="form_body">
+              <view class="form_input">
+                <textarea name="sevenHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="kuai">
+        </view>
+        <view class="button_cl">
+          <button onTap="tool_two_pre" class="form_submit" size="default" type="default">{{pre}}</button>
+          <button onTap="tool_two_next" class="form_submit" size="default" type="primary">{{next}}</button>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <!-- 自生车内工具填写信息////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <view class="box" hidden={{self_tool_show}}>
+      <view class="box_title">辅助工具及员工形象检查项目</view>
+      <view class="box_2">
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            头灯
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{headlamp_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{headlamp_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{headlamp}}" data-valb="{{headlamp_showList}}" data-type="f1" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{headlamp}}" data-valb="{{headlamp_showList}}" data-type="f1">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            搭电宝电量
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{power_supply_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{power_supply_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{power_supply}}" data-valb="{{power_supply_showList}}" data-type="f2" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{power_supply}}" data-valb="{{power_supply_showList}}" data-type="f2">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view>
+          <view class="body_img">
+            <view class="img_title">
+            形象自拍照
+            </view>
+            <view class="nsimg">
+              <view class="imgbox" a:for="{{selfie_showList}}" a:for-index="idx">
+                <image onTap="yl" data-index="{{idx}}" data-imglist="{{selfie_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                <view style="display:inline" hidden={{finish}}>
+                  <image onTap="delect" data-index="{{idx}}" data-vala="{{selfie}}" data-valb="{{selfie_showList}}" data-type="f3" class="img_close" mode="widthFix" src="/image/close.png" />
+                </view>
+              </view>
+              <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{selfie}}" data-valb="{{selfie_showList}}" data-type="f3">
+                <text class="jia-jia">+</text>
+              </view>
+              <view style='clear:both'></view>
+            </view>
+          </view>
+          <view class="bian"></view>
+        </view>
+        <view class="form_box mar_top">
+          <view class="form_title">有无问题</view>
+          <view hidden={{finish}} class="form_body">
+            <radio-group class="radio-group" onChange="self_tool_problem_click">
+              <label class="radio" a:for="{{items}}">
+                <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+              </label>
+            </radio-group>
+          </view>
+          <view hidden={{back}} class="form_body">
+            <view class="form_input">{{self_tool_problem_type}}</view>
+          </view>
+          <view hidden={{handle}} class="form_body">
+            <view class="form_input">{{self_tool_problem_type}}</view>
+          </view>
+        </view>
+        <view hidden={{self_tool_problem_write}}>
+          <view class="form_box mar_top">
+            <view class="form_title yj">问题描述</view>
+            <view hidden={{finish}} class="form_body">
+              <view class="form_input">
+                <textarea name="sixProblem" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+              </view>
+            </view>
+            <view hidden={{back}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{self_tool_problem_text}}</view>
+              </scroll-view>
+            </view>
+            <view hidden={{handle}} class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{self_tool_problem_text}}</view>
+              </scroll-view>
+            </view>
+          </view>
+          <view>
+            <view class="body_img">
+              <view class="img_title">
+            补充问题部位照片
+              </view>
+              <view class="nsimg">
+                <view class="imgbox" a:for="{{six_problem_showList}}" a:for-index="idx">
+                  <image onTap="yl" data-index="{{idx}}" data-imglist="{{six_problem_showList}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+                  <view style="display:inline" hidden={{finish}}>
+                    <image onTap="delect" data-index="{{idx}}" data-vala="{{six_problem}}" data-valb="{{six_problem_showList}}" data-type="ff4" class="img_close" mode="widthFix" src="/image/close.png" />
+                  </view>
+                </view>
+                <view hidden={{finish}} onTap="takePhoto" class="jia" data-vala="{{six_problem}}" data-valb="{{six_problem_showList}}" data-type="ff4">
+                  <text class="jia-jia">+</text>
+                </view>
+                <view style='clear:both'></view>
+              </view>
+            </view>
+            <view class="bian"></view>
+          </view>
+          <view hidden={{back}} >
+            <view class="form_box mar_top" hidden={{sixHandlingOpinions_type}} >
+              <view class="form_title yj">部门意见</view>
+              <view class="form_body">
+                <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                  <view class="text_self">{{sixHandlingOpinions}}</view>
+                </scroll-view>
+                <view class="text_title">审批人:{{vmUser}}</view>
+                <view class="text_title_2">时间:{{vmDate}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden={{handle}} >
+          <view class="form_box mar_top">
+            <view class="form_title yj">处理意见</view>
+            <view class="form_body">
+              <view class="form_input">
+                <textarea name="sevenHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="kuai">
+        </view>
+        <view class="button_cl">
+          <button onTap="self_tool_pre" class="form_submit" size="default" type="default">{{pre}}</button>
+          <view style="display:inline" hidden={{finish}}>
+            <button formType="submit" class="form_submit" size="default" type="primary">完成</button>
+          </view>
+          <view style="display:inline" hidden={{back_b}}>
+            <button class="form_submit" size="default" type="primary" onTap="come_back">返回</button>
+          </view>
+          <view style="display:inline" hidden={{handle}}>
+            <button formType="submit" class="form_submit" size="default" type="primary">提交</button>
+          </view>
+          <view style="display:inline" hidden={{zhijian_b}}>
+            <button onTap="zhi_jian" class="form_submit" size="default" type="primary">{{next}}</button>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 质检意见显示************************************************************************************************ -->
+    <view class="box" hidden={{zhijian}}>
+      <view class="box_title">质监意见</view>
+      <view class="box_2">
+        <view >
+          <view class="form_box mar_top">
+            <view class="form_title yj">质监意见</view>
+            <view class="form_body">
+              <scroll-view class="scroll_view" scroll-y=true scroll-x=true >
+                <view class="text_self">{{qsProblem}}</view>
+              </scroll-view>
+              <view class="text_title">审批人:{{qsUser}}</view>
+              <view class="text_title_2">时间:{{qsDate}}</view>
+            </view>
+          </view>
+        </view>
+        <!--<view hidden={{handle}} ><view class="form_box mar_top"><view class="form_title yj">处理意见</view><view class="form_body"><view class="form_input"><textarea name="sevenHandlingOpinions" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" /></view></view></view></view> -->
+        <view class="kuai">
+        </view>
+        <view class="button_cl">
+          <button onTap="zhi_jian_2" class="form_submit" size="default" type="default">{{pre}}</button>
+          <button class="form_submit" size="default" type="primary" onTap="come_back">返回</button>
+        </view>
+      </view>
+    </view>
+    <!--  -->
+  </form>
+</scroll-view>

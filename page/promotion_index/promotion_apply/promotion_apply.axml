@@ -1,0 +1,117 @@
+<!--晋升申请页面-->
+<view class="box">
+  <view class="box_2">
+    <form onSubmit="formsubmit">
+      <view class="form_box mar_top">
+        <view class="form_title">姓名</view>
+        <view class="form_body">
+          <input name="xm" class="form_input form_input_text" type="text" placeholder="" value="{{username}}" />
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">性别</view>
+        <view class="form_body">
+          <radio-group class="radio-group" onChange="radioChange">
+            <label class="radio" a:for="{{items}}">
+              <radio name="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">籍贯</view>
+        <view class="form_body">
+          <input name="nativePlace" class="form_input form_input_text" type="text" placeholder="" value="" />
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">出生年月</view>
+        <view class="form_body">
+          <view onTap="get_time" class="form_input">{{datetime}}</view>
+          <view hidden=true>
+            <input name="birthday" class="form_input" type="text" placeholder="" value="{{datetime}}" />
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">学历</view>
+        <view class="form_body">
+          <input name="education" class="form_input form_input_text" type="text" placeholder="" value="" />
+        </view>
+      </view>
+      <!--<view class="form_box mar_top"><view class="form_title">专业</view><view class="form_body"><input name="major" class="form_input" type="text" placeholder="" value="无" /></view></view> -->
+      <!--<view class="form_box mar_top"><view class="form_title">毕业学校</view><view class="form_body"><input name="graduateSchool" class="form_input" type="text" placeholder="" value="" /></view></view><view class="form_box mar_top"><view class="form_title">毕业时间</view><view class="form_body"><view onTap="get_time_biye" class="form_input">{{datetimebiye}}</view><view hidden=true><input name="graduateTime" class="form_input" type="text" placeholder="" value="{{datetimebiye}}" /></view></view></view> -->
+      <view class="form_box mar_top">
+        <view class="form_title">入职时间</view>
+        <view class="form_body">
+          <view class="form_input">{{info_hiredDate}}</view>
+          <view hidden=true>
+            <input name="hiredate" class="form_input" type="text" placeholder="" value="{{info_hiredDate}}" />
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">在职年限</view>
+        <view class="form_body">
+          <view class="form_input">{{datenum}}</view>
+          <view hidden=true>
+            <input name="workingSeniority" class="form_input" type="text" placeholder="" value="{{datenum}}" />
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">现岗位</view>
+        <view class="form_body">
+          <picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="form_input">
+            {{array[index]}}
+            </view>
+          </picker>
+          <view hidden=true>
+            <input name="post" class="form_input" type="text" placeholder="" value="{{post}}" />
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">现级别</view>
+        <view class="form_body">
+          <view class="form_input">
+            {{info_position}}
+          </view>
+          <view hidden=true>
+            <input name="level" class="form_input" type="text" placeholder="" value="{{info_position}}" />
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">申请级别</view>
+        <view class="form_body">
+          <picker onChange="bindPickerChange3" value="{{index_2}}" range="{{array_2}}">
+            <view class="form_input">
+            {{array_2[index_2]}}
+            </view>
+          </picker>
+          <view hidden=true>
+            <input name="application" class="form_input" type="text" placeholder="" value="{{application}}" />
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title yj">自我评价</view>
+        <view class="form_body">
+          <view class="form_input">
+            <textarea name="selfAssessment" class="yijian" placeholder="请输入" maxlength="500" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+          </view>
+        </view>
+      </view>
+      <view class="kuai">
+      </view>
+      <view class="button_cl">
+        <button class="submit_form" size="default" formType="submit" type="primary">提交申请</button>
+        <!--<button onTap="no_tj" class="form_submit" size="default" type="primary">{{formtext.button_no}}</button> -->
+        <!--<button onSubmit="no_tongyi" class="form_submit" size="default" type="primary">提交申请</button> -->
+      </view>
+      <!--<button class="form_submit" onTap="dw2" type="primary">{{formtext.button_dw}}</button> -->
+    </form>
+  </view>
+</view>

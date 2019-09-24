@@ -1,0 +1,19 @@
+<scroll-view class="box" scroll-y="true" onScrollToLower="next" >
+  <view class="card_box" a:for={{list}}   >
+    <view class="card_body" data-index="{{item.id}}" data-name="{{item.loginName}}" onTap="to_sp">
+      <view class="card_text">
+        <text class="dan_hao">单号</text>
+        <text class="dan_hao_2">{{item.runNumber}}</text></view>
+      <view class="card_text">
+        <image class="card_image" mode="widthFix" src="/image/ren.png" />
+        <text class="card_image_2">{{item.loginName}}</text>
+        <image class="card_image left-image" mode="widthFix" src="/image/fengge.png" />
+        <text class="card_image_2 left">反馈申请</text>
+      </view>
+      <view class="card_text">
+        <image class="card_image" mode="widthFix" src="/image/time.png" />
+        <text class="card_image_2">{{item.createDate}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

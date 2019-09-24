@@ -1,0 +1,104 @@
+<view hidden={{allHidden}} >
+  <form  onSubmit="onSubmit" onReset="onReset">
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">姓    名</view>
+        <view class="form-row-content">
+          <input class="things-values" name="" value="{{name}}" disabled /> 
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <input class="things-values" name="post" value="{{post}}" disabled />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">入职时间</view>
+        <view class="form-row-content">
+          <input class="inputTime" name="hiredate"  value="{{hiredate}}" disabled /> 
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">工作年限</view>
+        <view class="form-row-content">
+          <input  class="inputTime" name="workingSeniority" value="{{workingSeniority}}" disabled />
+        </view>
+        <view class="tian">
+          天
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">申请离职</view>
+        <view class="form-row-content" onTap="resignApplyDatePicker">
+          <input class="inputTime" name="resignApplyTime" value="{{resignApplyTime}}" placeholder="申请离职时间" disabled />
+        </view>
+      </view>
+    </view>
+    <!-- <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">离职原因</view>
+        <view class="form-row-content">
+          <input class="input-value" name="" maxlength="5"  value="{{job}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view> -->
+    <view class="page-section">
+      <picker onChange="onChange" value="{{Lzvalue}}" range="{{list}}" range-key="{{item}}">
+        <view class="form-row">
+          <view class="form-row-label">离职原因</view>
+          <view class="form-row-content">
+            <view class="things-values" style="margin-left:5rpx;">{{list[Lzvalue]}}</view>
+          </view>
+          <view class="row-extra">(当前选择)</view>
+        </view>
+      </picker>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">离职事由</view>
+      </view>
+      <view class="page-section-demo">
+        <textarea class="my-textarea" name="resignReason" auto-height placeholder="请输入不少于30字的事由"/>
+      </view>
+    </view>
+    <view class="section">
+      <button style="background:red;color:white;" type="default" onTap="to_qz">点击签字确认</button>
+    </view>
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">本人签字</view>
+        <view class="form-row-content">
+          <view class="things-value">
+            <image class="qz_img folat" mode="widthFix" src="{{signImage}}"/></view>
+        </view>
+      </view>
+    </view>
+
+    <view >
+      <button loading={{submitLoading}} class="submit_form" formType="submit" size="default" type="primary">确认提交</button>
+      <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="default">不同意</button> -->
+    </view>
+
+  </form>
+</view>
+
+<!--签字弹窗 -->
+<!--<image mode="scaleToFill" src=""/> -->
+<view class='content' hidden={{is_hidden}} >
+  <canvas class='firstCanvas' id="firstCanvas" onTouchMove='move' onTouchStart='start' onTouchEnd='end' onTouchCancel='cancel' onLongTap='tap' disable-scroll=false ></canvas>
+  <view>
+    <button class="button_qm" onTap='clearClick'>重写</button>
+    <button class="button_qm" onTap='saveClick' >确定</button>
+  </view>
+</view>
+<!--遮罩-->
+<view class="zz" hidden={{is_hidden}} onTap="closeZZ"></view>

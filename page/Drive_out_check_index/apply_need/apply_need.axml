@@ -1,0 +1,36 @@
+<scroll-view class="need-scroll" scroll-y="true" onScrollToLower="lower">
+  <view class="need-body-box">
+    <view class="need-box">
+      <view class="need-title">每日车辆检查须知</view>
+      <view class="need-fu-title">一、目的 </view>
+      <view class="need-body">  为进一步加强和规范公司管理，保障员工日常行车安全，减少行车过程中事故、故障的发生，做好预防措施，公司特制定每日出车检查OA流程。</view>
+      <view class="need-fu-title">二、要求 </view>
+      <!-- <view class="need-body border_text">（一）问责设立：</view> -->
+      <view class="need-body" style="text-indent: 3em;"> 1.技师必须在每日出车前仔细检查车辆各个项目（除休息外）；</view>
+      <!-- <view class="need-body border_text">（二）问责人员：</view> -->
+      <view class="need-body" style="text-indent: 3em;"> 2.检查车上各类工具齐全有效，确保一切正常可以使用；</view>
+      <!-- <view class="need-body border_text">（三）问责内容：</view> -->
+      <view class="need-body" style="text-indent: 3em;">3.检查各个项目时必须拍照留证，照片要求清晰可见；</view>
+      <!-- <view class="need-body border_text">（三）问责流程：</view> -->
+      <view class="need-body" style="text-indent: 3em;"> 4.检查出车辆有故障后需及时告知直属部门领导；如需维修走维修报备流程,</view>
+      <view class="need-body" style="text-indent: 3em;"> 5.检查时要求仔细、认真，这既是一项工作任务，更是一种承诺，是对自身的人身安全与一个家庭的的承诺；</view>
+      <!-- <view class="need-body border_text">（五）问责要求：</view> -->
+      <view class="need-fu-title">三、按OA前后排列流程检查以下项目 </view>
+      <view class="need-body">1.检查内容：轮胎、机油、皮带、冷却液、发动机、传动轴、雨刮器和各类使用工具，按照OA提示依次检查拍照；</view>
+      <view class="need-body">2.所有项目检查好后，没有问题就正常提交OA流程，假如某个项目不正常，就需要在该项目的下方描述该问题，提交后先告知车管部领导,经同意后再走维修报备流程；</view>
+      <view class="need-body">3.若OA流程异常无法提交，请及时联系直属部门进行报备并且给予无法提交的证据；</view>
+      <view class="need-body">4.车管部门要在技师提交后有问题的请及时回复解决方案,第二天审核完技师提交的OA流程，并对技师反应的问题安排相关解决工作；</view>
+      <view class="need-body">5.车管部门在审核过程中发现技师未提交OA流程，需作出处理并填写处理意见；</view>
+      <view class="need-body">6.技师在正常情况下没有提交OA流程记录KPI考核负激励2分；车管部门没有及时审核、没有及时给予技师解答问题的都记录KPI考核负激励2分；</view>
+
+      <view class="need-body left-foot">浙江快捷汽车股份有限公司</view>
+      <!--<checkbox-group class="check-box" onChange="onChange"><label class="checkbox" a:for="{{items}}"><checkbox style="background:{{color}}" value="{{item.value}}"/><text class="checkbox-text">{{item.name}}</text></label></checkbox-group> -->
+    </view>
+    <view class="kuai">
+    </view>
+  </view>
+</scroll-view>
+<view class="button_cl">
+  <button class="submit_form" size="default" onTap="tj" type="primary">{{button_text}}</button>
+  <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="primary">不同意</button> -->
+</view>

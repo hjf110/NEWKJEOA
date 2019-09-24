@@ -1,0 +1,36 @@
+<view class="header">
+  <input class="query_input" placeholder="输入车辆相关信息" onInput="nameinfo" />
+  <button class="query_button" onTap="bindPickerChange">查询</button>
+</view>
+<scroll-view class="scroll_style" scroll-y=true onScrollToLower="next">
+  <!--<view a:for={{list}}><view class="info_item" data-index="{{item.id}}" data-name="{{item.loginName}}" data-licensePlate="{{item.licensePlate}}" data-userId="{{item.userId}}" onTap="to_sp"><view class="info_body"><view class="text_left">{{item.licensePlate}}</view><view class="text_right">{{item.loginName}}</view></view></view></view> -->
+  <view class="card_box" a:for={{list}}   >
+    <view class="card_body" data-index="{{item.id}}" data-name="{{item.loginName}}" data-licensePlate="{{item.licensePlate}}" data-userId="{{item.userId}}" data-toolboxLocation="{{item.toolboxLocation}}" onTap="to_sp">
+      <view class="card_text">
+        <text class="dan_hao">归属</text>
+        <text class="dan_hao_2">{{item.belong}}</text></view>
+      <view class="card_text">
+        <image class="card_image" mode="widthFix" src="/image/ren.png" />
+        <text class="card_image_2">{{item.loginName}}</text>
+        <image class="card_image left-image" mode="widthFix" src="/image/fengge.png" />
+        <text class="card_image_2 left">{{item.licensePlate}}</text>
+        <image class="card_image left-image" mode="widthFix" src="/image/fengge.png" />
+        <text class="card_image_2 left">{{item.vehicleBrand}}</text>
+      </view>
+      <view class="card_text">
+        <image class="card_image" mode="widthFix" src="/image/toolaa.png" />
+        <text class="card_image_2">{{item.toolName}}</text>
+        <image class="card_image left-image" mode="widthFix" src="/image/fengge.png" />
+        <text class="card_image_2 left">{{item.motorcycleType}}</text>
+      </view>
+       <view class="card_text">
+        <image class="card_image" mode="widthFix" src="/image/updatatime.png" />
+        <text class="card_image_2">{{item.updateDate}}</text>
+      </view>
+      <!--<image class="type_image" mode="widthFix" src="{{type_src}}" /> -->
+    </view>
+  </view>
+  <view style="height:50px;text-align: center;line-height: 50px;  color: #BEBEBE;">
+    {{lastinfo}}
+  </view>
+</scroll-view>

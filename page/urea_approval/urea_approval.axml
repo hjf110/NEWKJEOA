@@ -1,0 +1,89 @@
+
+<!--尿素审批页面-->
+
+
+
+<view class="box">
+  <view class="box_2">
+    <form onSubmit="formsubmit">
+      <view class="form_box mar_top">
+        <view class="form_title">{{formtext.user_name}}</view>
+        <view class="form_body">
+          <view class="form_input">{{user_name}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">{{formtext.urea_rest}}</view>
+        <view class="form_body">
+          <view class="form_input">{{sy_num}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <!--<button onTap="dw" class="form_button_dw" type="primary">{{formtext.button_dw}}</button> -->
+        <view class="form_title">{{formtext.lication}}</view>
+        <view class="form_body">
+          <view class="wz_text">
+            <view class="wz">{{weizhi}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top b_no">
+        <view class="form_title">{{formtext.kilometres}}</view>
+        <view class="form_body">
+          <view class="form_input">{{gl}}</view>
+        </view>
+      </view>
+      <view class=" mar_top ">
+        <view>
+          <template is="Grid_b" data={{...grid}} ></template>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">{{formtext.urea_num}}</view>
+        <view class="form_body">
+          <view class="form_input">{{urea_Num}}</view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title">审批数量</view>
+        <view class="form_body">
+          <view class="form_input">
+            <input class="sp_input" placeholder="请输入" type="text" value="{{sp_num}}" onInput="get_sp_num" />
+          </view>
+        </view>
+      </view>
+      <view class="form_box mar_top">
+        <view class="form_title yj">审批意见</view>
+        <view class="form_body">
+          <view class="form_input">
+            <textarea class="yijian" placeholder="请输入审批意见" maxlength="140" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+          </view>
+        </view>
+      </view>
+
+  <view class="kuai">
+    </view>
+
+      <view class="button_cl">
+        <button class="form_submit" size="default" onTap="yes_tj" type="primary">{{formtext.button_yes}}</button>
+        <button onTap="no_tj" class="form_submit" size="default" type="primary">{{formtext.button_no}}</button>
+         <!-- <button onTap="no_tongyi" class="form_submit" size="default" type="primary">{{formtext.button_no}}</button> -->
+      </view>
+      <!--<button class="form_submit" onTap="dw2" type="primary">{{formtext.button_dw}}</button> -->
+    </form>
+  </view>
+</view>
+<!--遮罩-->
+<view class="zz" hidden={{is_hidden}}>
+</view>
+<!--否定意见弹窗-->
+<view class="no_box" hidden={{is_hidden}}>
+  <view class="no_title">{{formtext.yijian}}</view>
+  <view class="no_body">
+    <textarea class="yijian" placeholder="请输入否定意见" maxlength="140" auto-height="{{auto_height}}" value="{{text_no}}" onInput="get_textarea_value" />
+  </view>
+  <view>
+    <button class="form_submit_two" size="default" type="primary" onTap="no_tj">提交</button>
+    <button onTap="qx" class="form_submit_two" size="default" type="primary">取消</button>
+  </view>
+</view>
