@@ -45,6 +45,8 @@ Page({
     approvalOpinion: "",//审批意见
     yjList: "",//意见列表
     
+    controlStatus:false,//知晓状态
+
     callHidden: true,//是否隐藏拨号按钮
     zmPic1Hide: true,
     zmPic2Hide: true,
@@ -73,7 +75,7 @@ Page({
     console.log(res);
     const thisId = res.id;
 
-    app.getUserPower(app.urlApi.nci_getUserPower,function(){/************************获取权限*************************/
+    app.getUserPower(app.urlApi.ncd_getUserPower,function(){/************************获取权限*************************/
       console.log("新车问题反馈权限-----",app.userinfo.arr[0]);
 
       app.ajaxSubmit(app.urlApi.zidian, "GET", { type: "accident" }, function(e1) {
@@ -82,7 +84,7 @@ Page({
       console.log("得到的事故地类别---", leList);
 
         //赋值操作********************************************************************************************************************开始********************************
-        app.ajaxSubmit(app.urlApi.nci_add_select, "GET", { id: thisId }, function(e) {//获得单条记录内容
+        app.ajaxSubmit(app.urlApi.ncd_add_select, "GET", { id: thisId }, function(e) {//获得单条记录内容
           console.log("获得的单条记录内容为-------", e);
           var infoList = e.data;
           console.log("infoList-------",infoList);
@@ -269,8 +271,8 @@ Page({
               });
             }
           }
-          if (runType.currentNode == 2 && node == 3 && station== 20){
-            if(runType.status == 0 ){
+          if (runType.currentNode == 3 && node == 3 && station == 20){
+            if(runType.status == -1 ){
               console.log("进入了调度处理");
               that.setData({
                 islook: false,//是操作
@@ -281,7 +283,7 @@ Page({
                 toback: true,//隐藏返回按钮
               });
             }
-            else if(runType.status == 1 ){
+            else if(runType.status == 0 ){
               console.log("调度已处理");
               that.setData({
                 islook: true,//是查看
@@ -294,7 +296,7 @@ Page({
             }
           }
           
-          if (runType.currentNode == 3 && node == 3 ){
+          if (runType.currentNode == 3 && node == 3 && station==3){
             that.setData({
               islook: true,//是操作不是查看
               callHidden: false,
@@ -393,7 +395,7 @@ Page({
   yes_dd() {
     var that = this;
     console.log("调度员点击了知晓");
-    this.submit(true);
+    this.submit1();
   },
   
 
@@ -429,7 +431,7 @@ Page({
         content: '数据提交中,请稍后...',
         delay: 1000,
       });
-      app.ajaxSubmit(app.urlApi.nci_apply + "?applyType="+type + "&node="+node + "&station="+station, "POST" , { approvalOpinions: yj,id: that.data.id} , (res) =>{
+      app.ajaxSubmit(app.urlApi.ncd_apply + "?applyType="+type + "&node="+node + "&station="+station, "POST" , { approvalOpinions: yj,id: that.data.id} , (res) =>{
         console.log("存入的数据",res);
         dd.hideLoading();
         dd.showToast({
@@ -441,6 +443,57 @@ Page({
           url: '/page/carDockIndex/carDockIndex'
         })
       },true,true);
+    }
+  },
+
+  submit1(){
+    var that = this;
+    console.log('form发生了submit事件');
+    var info = app.userinfo.arr;
+    let node;
+    let station;
+    for (let i = 0; i < info.length; i++) {
+      if (info[i].docno == that.data.docno) {
+        node = info[i].nodeNum;
+        station = info[i].station;
+      }
+    }
+    that.setData({
+      controlStatus:true,
+    })
+    //res.controlStatus == that.data.controlStatus;
+    //let yj = that.data.approvalOpinion;//得到意见
+    let i = this.data.i;//得到是否点击的状态
+
+    console.log("经理同意的提交");
+    // if (yj == "" || yj == null) {
+    //   dd.alert({ title: '请输入审批意见', buttonText: '好的' });
+    // } else if (yj.length < 30) {
+    //   dd.alert({ title: '审批意见不得小与30个字', buttonText: '好的' });
+    // }
+    if (i == 1) {
+      dd.alert({ title: '已提交,请勿重复提交', buttonText: '好的' });
+    }
+    else {
+      that.setData({
+        i: 1
+      });
+      dd.showLoading({
+        content: '数据提交中,请稍后...',
+        delay: 1000,
+      });
+      app.ajaxSubmit(app.urlApi.ncd_con ,"GET",{id:that.data.id},function(e){
+        console.log("存入的数据",e);
+        dd.hideLoading();
+        dd.showToast({
+          type: 'success',
+          content: '操作成功',
+          duration: 3000
+        });
+        dd.redirectTo({
+          url: '/page/carDockIndex/carDockIndex'
+        })
+      },true,false);
     }
   },
 

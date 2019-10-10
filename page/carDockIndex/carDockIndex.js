@@ -16,7 +16,7 @@ Page({
   onLoad(res) {
     var that = this;
     //获取新车事故装卸的权限
-    app.ajaxSubmit(app.urlApi.nci_getUserPower,"GET",null,function(res){/*****************************权限接口*******************************/
+    app.ajaxSubmit(app.urlApi.ncd_getUserPower,"GET",null,function(res){/*****************************权限接口*******************************/
       console.log(res);
       app.userinfo.arr=res.data;//存入权限
       let qx = res.data[0];//读取存入的权限

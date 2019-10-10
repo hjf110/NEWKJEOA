@@ -64,7 +64,7 @@ Page({
       });
     });
 
-    //获取请假类别
+    //获取事故地点类别
     app.ajaxSubmit(app.urlApi.zidian, "GET", { type: "accident" }, function(res) {
       console.log("获得的事故发生地是", res);
       let bb = that.data.list;
@@ -74,7 +74,7 @@ Page({
       //   console.log(aa[i]);
       //   bb.push(aa[i].label);
       // }
-      bb.push("请选择事故发生地")
+      bb.push("选择事故发生地")
       aa.forEach(function(element) {
         console.log(element);
         bb.push(element.label);
@@ -118,11 +118,12 @@ Page({
     res.carProblemPic = app.tihuan(that.data.carProblemPic);
     res.mobile = that.data.mobile;
 
-    if(that.data.acvalue == 0) {
+    if(that.data.acvalue == 0 || that.data.acvalue=="" || that.data.acvalue==null) {
       dd.alert({ title: '请选择事故发生地', buttonText: '好的' });
     }else if(customerUnit == "" || customerUnit == null) {
       dd.alert({ title: '请填写客户单位', buttonText: '好的' });
-    } else if (that.data.carFrameNumberPic.length == 0) {
+     } 
+     else if (that.data.carFrameNumberPic.length == 0) {
       dd.showToast({ content: '请拍摄事故车车架号照片', duration: 3000 });
     } else if (that.data.carPanoramaPic.length == 0) {
       dd.showToast({ content: '请拍摄事故车全景照片', duration: 3000 });
@@ -142,7 +143,7 @@ Page({
       dd.showLoading({
         content: '提交中请稍后...'
       });
-      app.ajaxSubmit(app.urlApi.nci_add,"POST",res,function(e){/*****************************申请提交接口******************************/
+      app.ajaxSubmit(app.urlApi.ncd_add,"POST",res,function(e){/*****************************申请提交接口******************************/
         console.log("提交后返回的信息：",e);
         dd.showToast({
           content: '提交成功',

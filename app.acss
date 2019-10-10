@@ -731,3 +731,13 @@ input {
 .form-row-label{
    font-family: "微软雅黑";
 }
+.page-section{
+  position: relative;
+}
+.form-row-red{
+  color:red;
+  font-size: 30rpx;
+  position: absolute;
+  left: 10rpx;
+  top: 30%;
+}

@@ -1,5 +1,6 @@
 {
   "pages": [
+   
     "page/panduan/panduan",
     "page/Drive_out_check_index/driver_apply/driver_apply",
     "page/component/index",
@@ -91,7 +92,14 @@
     "page/carAccidentIndex/accident_approval/list/list",
     "page/carAccidentIndex/accident_apply/accident_apply",
     "page/carAccidentIndex/accident_apply/list/list",
-    "page/Drive_out_check_index/apply_need/apply_need"
+    "page/Drive_out_check_index/apply_need/apply_need",
+    "page/Inventory_management_index/Inventory_management_index",
+
+
+     "page/Inventory_management_index/Ling_Yong/add/add",
+    "page/Inventory_management_index/Diao_Bo/add/add",
+    "page/Inventory_management_index/Cai_Gou/add/add"
+    
   ],
   "window": {
     "enableWK": "YES",

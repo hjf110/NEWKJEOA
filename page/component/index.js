@@ -11,7 +11,10 @@ Page({
       pageId: 0,
     },
     curIndex: 0,
-    arr: {},
+    arr: {
+      onItemTap: 'onGridItemTap',
+      list: []
+    },
   },
   onLoad(res) {
     var that = this;
@@ -24,60 +27,63 @@ Page({
       if (res.v == that.data.edition) {
         console.log("新的----");
         var bb =
-        {
-          onItemTap: 'onGridItemTap',
-          list: [{
+          [{
             icon: '/image/up.png',
             title: '员工晋升流程',
             entitle: 'Promotion',
             page: '/page/promotion_index/promotion_index',
-          }, {
+          }
+            , {
             icon: '/image/carcheck.png',
             title: '出车检查流程',
             entitle: 'Promotion',
             page: '/page/Drive_out_check_index/Drive_out_check_index',
-          }, {
+          }
+            , {
             icon: '/image/qingjia.png',
             title: '员工请假流程',
             entitle: 'Promotion',
             page: '/page/leave_index/leave_index',
-          }, {
-                icon: '/image/cizhi.png',
-                title: '员工离职流程',
-                entitle: 'Promotion',
-                page: '/page/resign_index/resign_index',
-          }, {
-                icon: '/image/wenze.png',
-                title: '问责督办流程',
-                entitle: 'Promotion',
-                page: '/page/complain_index/complain_index',
-          }, {
-                icon: '/image/newcarcheck.png',
-                title: '新车检查问题反馈',
-                entitle: 'Promotion',
-                page: '/page/carInspectionIndex/carInspectionIndex',
           }
-          , {
-                icon: '/image/newcarcheck.png',
-                title: '新车检查装卸事故',
-                entitle: 'Promotion',
-                page: '/page/carDockIndex/carDockIndex',
+            , {
+            icon: '/image/cizhi.png',
+            title: '员工离职流程',
+            entitle: 'Promotion',
+            page: '/page/resign_index/resign_index',
           }
-          , {
-                icon: '/image/newcarcheck.png',
-                title: '自车交通事故',
-                entitle: 'Promotion',
-                page: '/page/carAccidentIndex/carAccidentIndex',
+            , {
+            icon: '/image/wenze.png',
+            title: '问责督办流程',
+            entitle: 'Promotion',
+            page: '/page/complain_index/complain_index',
           }
-          ]
-        };
+            , {
+            icon: '/image/newcarcheck.png',
+            title: '新车检查问题反馈',
+            entitle: 'Promotion',
+            page: '/page/carInspectionIndex/carInspectionIndex',
+          }
+            , {
+            icon: '/image/newcarcheck.png',
+            title: '新车检查装卸事故',
+            entitle: 'Promotion',
+            page: '/page/carDockIndex/carDockIndex',
+          }
+            , {
+            icon: '/image/newcarcheck.png',
+            title: '自车交通事故',
+            entitle: 'Promotion',
+            page: '/page/carAccidentIndex/carAccidentIndex',
+          }
+            , {
+            icon: '/image/newcarcheck.png',
+            title: '库存管理',
+            entitle: 'Promotion',
+            page: '/page/Inventory_management_index/Inventory_management_index',
+          }]
         that.setData({
-          arr: bb
+          "arr.list": bb
         });
-
-
-
-
 
         app.ajaxSubmit(app.urlApi.c_getUserPower, "GET", null, function(res) {
           console.log("得的权限数据车管----", res);
@@ -96,65 +102,17 @@ Page({
             }
           }
           if (type == 1) {
-            var bb =
-            {
-              onItemTap: 'onGridItemTap',
-              list: [{
-                icon: '/image/up.png',
-                title: '员工晋升流程',
-                entitle: 'Promotion',
-                page: '/page/promotion_index/promotion_index',
-              }, {
-                icon: '/image/carcheck.png',
-                title: '出车检查流程',
-                entitle: 'Promotion',
-                page: '/page/Drive_out_check_index/Drive_out_check_index',
-              }, {
-                icon: '/image/qingjia.png',
-                title: '员工请假流程',
-                entitle: 'Promotion',
-                page: '/page/leave_index/leave_index',
-              }, {
-                icon: '/image/cizhi.png',
-                title: '员工离职流程',
-                entitle: 'Promotion',
-                page: '/page/resign_index/resign_index',
-              }, {
-                icon: '/image/wenze.png',
-                title: '问责督办流程',
-                entitle: 'Promotion',
-                page: '/page/complain_index/complain_index',
-              }, {
-                icon: '/image/newcarcheck.png',
-                title: '新车检查问题反馈',
-                entitle: 'Promotion',
-                page: '/page/carInspectionIndex/carInspectionIndex',
-              }
-              , {
-                icon: '/image/newcarcheck.png',
-                title: '新车检查装卸事故',
-                entitle: 'Promotion',
-                page: '/page/carDockIndex/carDockIndex',
-              }
-              , {
-                icon: '/image/newcarcheck.png',
-                title: '自车交通事故',
-                entitle: 'Promotion',
-                page: '/page/carAccidentIndex/carAccidentIndex',
-              }
-              , {
-                icon: '/image/carguanli.png',
-                title: '车辆管理',
-                entitle: 'Promotion',
-                page: '/page/carManageIndex/carManageIndex',
-              }
-              
-                
-              
-              ]
-            };
+            let aa = that.data.arr.list;
+            //  console.log(aa);
+            let cc = {}
+            aa.push({
+              icon: '/image/carguanli.png',
+              title: '车辆管理',
+              entitle: 'Promotion',
+              page: '/page/carManageIndex/carManageIndex',
+            });
             that.setData({
-              arr: bb
+              "arr.list": aa
             });
           }
         }, true, false, true, false);

@@ -1,0 +1,96 @@
+<view class="page">
+  <form onSubmit="submit" onReset="onReset">
+    <view class="page-section" style="margin-top:15rpx">
+      <view class="form-row">
+        <view class="form-row-red">*</view>
+        <view class="form-row-label">物料名称</view>
+        <view class="form-row-content">
+          <input class="things-values" name="oname" value="{{form.oname}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-red">*</view>
+        <view class="form-row-label">物料规格</view>
+        <view class="form-row-content">
+          <input class="things-values" name="ospecification" value="{{form.ospecification}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <!-- <view class="form-row-red">*</view> -->
+        <view class="form-row-label">适用车型</view>
+        <view class="form-row-content">
+          <input class="things-values" name="ofitfor" value="{{form.ofitfor}}" />
+        </view>
+      </view>
+    </view>
+     <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-red">*</view>
+        <view class="form-row-label">领用人</view>
+        <view class="form-row-content">
+          <input class="things-values" name="spName" value="{{form.spName}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">产地</view>
+        <view class="form-row-content">
+          <input class="things-values" name="oplocation" value="{{form.oplocation}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">供应商</view>
+        <view class="form-row-content">
+          <input class="things-values" name="ovender" value="{{form.ovender}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-red">*</view>
+        <view class="form-row-label">数量</view>
+        <view class="form-row-content">
+          <input class="things-values" name="onumber" value="{{form.onumber}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <!-- <view class="form-row-red">*</view> -->
+        <view class="form-row-label">单位</view>
+        <view class="form-row-content">
+          <input class="things-values" name="ounit" value="{{form.ounit}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <!-- <view class="form-row-red">*</view> -->
+        <view class="form-row-label">单价</view>
+        <view class="form-row-content">
+          <input class="things-values" name="oprice" value="{{form.oprice}}" />
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-red">*</view>
+        <view class="form-row-label">领用仓库</view>
+        <view class="form-row-content">
+          <input class="things-values" name="delRepository" value="{{form.delRepository}}" />
+        </view>
+      </view>
+    </view>
+    <view >
+      <button loading={{i}} class="submit_form" formType="submit" size="default" type="primary">提交领用订单</button>
+      <!--<button onTap="yes_tj" class="form_submit" size="default" type="primary">同意</button><button onTap="no_tj" class="form_submit" size="default" type="default">不同意</button> -->
+    </view>
+  </form>
+</view>

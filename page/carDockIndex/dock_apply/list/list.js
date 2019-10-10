@@ -17,7 +17,7 @@ Page({
     var cid = app.userinfo.id;
     console.log("--------------------------新车问题反馈记录");
     console.log("用户的id为--", cid);
-      app.ajaxSubmit(app.urlApi.nci_add_list, "GET", { createId: cid }, function(res) {/******************反馈申请列表接口********************/
+      app.ajaxSubmit(app.urlApi.ncd_add_list, "GET", { createId: cid }, function(res) {/******************反馈申请列表接口********************/
       console.log("得到的列表为", res);
       var resData = res.data;
       var list_sp = that.data.list;

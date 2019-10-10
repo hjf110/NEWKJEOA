@@ -209,7 +209,9 @@
       <view class="my-button" hidden={{ddhide}} >
         <view class="page-section-btns">
           <view>
-            <button class="buttons" type="primary" formType="submit" onTap="yes_dd">跟踪已知晓</button>
+            
+            <!-- <button loading={{submitLoading}} class="submit_form" formType="submit" type="primary">跟踪已知晓</button> -->
+            <button class="buttons" type="primary" formType="submit"  onTap="yes_dd">跟踪已知晓</button>
           </view>
         </view>
       </view>

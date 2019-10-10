@@ -45,7 +45,7 @@ Page({
     var that = this;
     console.log("s_arr123", JSON.stringify(app.userinfo.arr));
     var arr_p = JSON.stringify(app.userinfo.arr);
-    app.ajaxSubmit(app.urlApi.nci_list, "POST", { page: this.data.page, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
+    app.ajaxSubmit(app.urlApi.ncd_list, "POST", { page: this.data.page, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
       console.log("得到的列表为", res);
       var aa = res.data;
       var list_sp = that.data.list;
@@ -99,7 +99,7 @@ Page({
       var that = this;
       console.log("s_arr", JSON.stringify(app.userinfo.arr));
       var arr_p = JSON.stringify(app.userinfo.arr);
-      app.ajaxSubmit(app.urlApi.nci_list, "POST", { page: this.data.page, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
+      app.ajaxSubmit(app.urlApi.ncd_list, "POST", { page: this.data.page, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
         console.log("得到的列表为", res);
         var aa = res.data;
         var list_sp = that.data.list;
@@ -150,7 +150,7 @@ Page({
     var that = this;
     console.log("s_arr", JSON.stringify(app.userinfo.arr));
     var arr_p = JSON.stringify(app.userinfo.arr);
-    app.ajaxSubmit(app.urlApi.nci_list, "POST", { page: this.data.page, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
+    app.ajaxSubmit(app.urlApi.ncd_list, "POST", { page: this.data.page, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
       console.log("得到的列表为", res);
       var aa = res.data;
       var list_sp = that.data.list;
@@ -199,7 +199,7 @@ Page({
       // var arr_p = JSON.stringify(app.userinfo.arr);
       //var cid = app.userinfo.id;
       var arr_p = JSON.stringify(app.userinfo.arr);
-      app.ajaxSubmit(app.urlApi.nci_list, "POST", { page: p, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
+      app.ajaxSubmit(app.urlApi.ncd_list, "POST", { page: p, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
         console.log("得到的列表为", res);
         var aa = res.data;
         var list_sp = that.data.list;

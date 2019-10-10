@@ -1,13 +1,15 @@
 //var url = "http://eoa.4008882662.cn/";//正式服务器
- var url = "http://dd.ubertech.cn/"//测试服务器1
+var url = "http://dd.ubertech.cn/";//测试服务器1
 // var url = "http://47.111.65.109/"//测试服务器2
 // var url = "http://vvwvv.iask.in/"//花生壳服务器
+var URLSTOCK = "http://101.132.151.68:80/";//库存管理测试环境
+
 var tttt;
 App({
   //接口地址
   urlApi: {
     url_address: url,
-     url_http: url,//测试环境
+    url_http: url,//测试环境
     // url_http: "",//正式环境
     upload_img: url + "file/upload/",//通用上传图片接口
     denlu: url + "login/ding/e",//登录接口
@@ -77,8 +79,21 @@ App({
     nci_add_select: url + "ding/flow/run/newCarInspection/queryOne",//问题反馈申请人单条记录查询，根据id获取
     nci_list: url + "ding/flow/run/newCarInspection/list",//审批单据列表(问题反馈审批页面)
     nci_apply: url + "ding/flow/run/newCarInspection/apply",//审批通用接口
-    //新车事故装卸问题********
+    //新车检查装卸问题********
+    ncd_getUserPower: url + "ding/flow/api/getUserPower?table=ding_flow_run_new_car_dock",//新车检查装卸权限
+    ncd_add: url + "ding/flow/run/newCarDock/submit",//申请单据首次提交（反馈申请）
+    ncd_add_list: url + "ding/flow/run/newCarDock/querySome",//申请人单据列表（反馈申请记录列表）
+    ncd_add_select: url + "ding/flow/run/newCarDock/queryOne",//申请人单条记录查询，根据id获取
+    ncd_list: url + "ding/flow/run/newCarDock/list",//审批单据列表(问题反馈审批页面)
+    ncd_apply: url + "ding/flow/run/newCarDock/apply",//审批通用接口
+    ncd_con: url + "ding/flow/run/newCarDock/controlIsKnow",//审批通用接口
+   
+    //自车交通事故***
 
+    //库存管理模块
+    st_add_caiGou:URLSTOCK+"order/add",//添加采购订单接口
+    st_add_diaoBo:URLSTOCK+"FlittingBill/create",//添加调拨订单接口
+    st_add_lingYong:URLSTOCK+"spareBill/create",//添加领用订单接口
   },
   //保存的用户信息
   userinfo: {
@@ -119,6 +134,8 @@ App({
     if (Json == true) {
       headers = { 'Content-Type': 'application/json;charset=UTF-8' };
       idata = JSON.stringify(Data);
+    }else{
+       headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
     }
     if (cookie == true && Json == true) {
       headers = { 'token': that.userinfo.jsessionid, 'Content-Type': 'application/json;charset=UTF-8' };
@@ -151,7 +168,7 @@ App({
         var re = res.data;
         //var re2 = res;
         if (list_is == false) {
-          if (re.success == true) {
+          if (re.success == true||re.status==200) {
             successMethod(re);
           } else if (re.success == false) {
             // dd.alert({ content: re.message });
