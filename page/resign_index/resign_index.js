@@ -68,7 +68,7 @@ Page({
         //   }
         // }
       }
-      else if( (qx.nodeNum == 2) || (qx.nodeNum == 3 && qx.station == 16) ){ //审批
+      else if( qx.nodeNum == 2 || qx.nodeNum == 3 ){ //审批
         ym={
           onItemTap: 'onGridItemTap',
           list: [{

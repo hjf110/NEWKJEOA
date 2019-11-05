@@ -14,7 +14,9 @@ Page({
       //循环代码
       if (that.userinfo.jsessionid == null || that.userinfo.jsessionid == "") {
         that.getUserInfo();
+        
       } else {
+        console.log("进入了跳转页面操作"); 
         dd.redirectTo({
           url: '/page/component/index?msg=' + res.message
         });
@@ -41,16 +43,11 @@ Page({
 
           console.log("3", app.userinfo);
           //成功后跳转页面
-          console.log("之前------------", a);
+          console.log("之前------------"+ a);
           dd.hideLoading();//隐藏加载loading
-          if (a == 1) {
             dd.redirectTo({
               url: '/page/component/index?msg=' + res.message
             });
-          };
-          a++;
-          console.log("之后------------", a);
-
         });
         /*{
             authCode: 'hYLK98jkf0m' //string authCode

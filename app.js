@@ -1,10 +1,11 @@
-//var url = "http://eoa.4008882662.cn/";//正式服务器
+// var url = "http://eoa.4008882662.cn/";//正式服务器
 var url = "http://dd.ubertech.cn/";//测试服务器1
 // var url = "http://47.111.65.109/"//测试服务器2
 // var url = "http://vvwvv.iask.in/"//花生壳服务器
 var URLSTOCK = "http://101.132.151.68:80/";//库存管理测试环境
 
 var tttt;
+
 App({
   //接口地址
   urlApi: {
@@ -87,13 +88,22 @@ App({
     ncd_list: url + "ding/flow/run/newCarDock/list",//审批单据列表(问题反馈审批页面)
     ncd_apply: url + "ding/flow/run/newCarDock/apply",//审批通用接口
     ncd_con: url + "ding/flow/run/newCarDock/controlIsKnow",//审批通用接口
-   
-    //自车交通事故***
+
+    //自车交通事故*************************************************************
+    sfc_getUserPower:url+"ding/flow/api/getUserPower?table=ding_flow_run_self_car_accident",//自车交通事故权限
+    sfc_add:url+"ding/flow/run/selfCarAccident/submit",//提交自车交通事故
+    sfc_add_list:url+"ding/flow/run/selfCarAccident/querySome",//查看自己的申请记录
+    sfc_add_select:url+"ding/flow/run/selfCarAccident/queryOne",//根据id查询单条记录
+    sfc_list:url+"ding/flow/run/selfCarAccident/list",//申请记录列表查询(审批人用)
+    sfc_vm_ok:url+"ding/flow/run/selfCarAccident/vmInstruct",//车管确认(任务继续还是任务取消)
+    sfc_dd_ok:url+"ding/flow/run/selfCarAccident/controlIsKnow",//指挥中心确认(确认已知晓)
+    
+
 
     //库存管理模块
-    st_add_caiGou:URLSTOCK+"order/add",//添加采购订单接口
-    st_add_diaoBo:URLSTOCK+"FlittingBill/create",//添加调拨订单接口
-    st_add_lingYong:URLSTOCK+"spareBill/create",//添加领用订单接口
+    st_add_caiGou: URLSTOCK + "order/add",//添加采购订单接口
+    st_add_diaoBo: URLSTOCK + "FlittingBill/create",//添加调拨订单接口
+    st_add_lingYong: URLSTOCK + "spareBill/create",//添加领用订单接口
   },
   //保存的用户信息
   userinfo: {
@@ -106,6 +116,21 @@ App({
     console.log('App Launch', options);
     console.log('getSystemInfoSync', dd.getSystemInfoSync());
     console.log('SDKVersion', dd.SDKVersion);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   },
   onShow() {
     console.log('App Show');
@@ -122,25 +147,26 @@ App({
   //通用请求方法(可以通过全局变量调用)
   ajaxSubmit(urlAddress, type, Data, successMethod, cookie, Json, islist, ismsg) {
     var that = this;
-    var headers;
+    var headers = {};
     var idata = Data;
     var list_is = false;
     var msg = true;
 
 
     if (cookie == true) {
-      headers = { 'token': that.userinfo.jsessionid };
+      headers["token"] = that.userinfo.jsessionid;
     }
     if (Json == true) {
-      headers = { 'Content-Type': 'application/json;charset=UTF-8' };
+      headers["Content-Type"] = "application/json;charset=UTF-8";
       idata = JSON.stringify(Data);
-    }else{
-       headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+    } else {
+      //  headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+      headers["Content-Type"] = "application/x-www-form-urlencoded";
     }
-    if (cookie == true && Json == true) {
-      headers = { 'token': that.userinfo.jsessionid, 'Content-Type': 'application/json;charset=UTF-8' };
-      idata = JSON.stringify(Data);
-    }
+    // if (cookie == true && Json == true) {
+    //   headers = { 'token': that.userinfo.jsessionid, 'Content-Type': 'application/json;charset=UTF-8' };
+    //   idata = JSON.stringify(Data);
+    // }
 
 
     if (islist == true) {
@@ -168,32 +194,27 @@ App({
         var re = res.data;
         //var re2 = res;
         if (list_is == false) {
-          if (re.success == true||re.status==200) {
-            successMethod(re);
+          if (re.success == true || re.status == 200) {
+            successMethod(re, true);
           } else if (re.success == false) {
-            // dd.alert({ content: re.message });
-            // dd.redirectTo({
-            //   url: '/page/err/err?msg=' + re.message
-            // });
+            successMethod(re, false);
+            dd.alert({ content: re.message });
             if (msg == true) {
               dd.alert({ content: re.message });
             }
           } else {
-            // dd.alert({ content: re.message });
-            // dd.redirectTo({
-            //   url: '/page/err/err?msg=未知错误'
-            // });
+            successMethod(re, false);
+            dd.alert({ content: "未知错误" });
             if (msg == true) {
               dd.alert({ content: "未知错误" });
             }
           }
         } else if (list_is == true) {
-
           successMethod(re);
-
         }
       },
       fail: function(res) {
+        successMethod(res, false);
         dd.alert({ content: '请求失败--请求头=' + JSON.stringify(headers) + "网址=" + urlAddress + "" + "参数----" + JSON.stringify(Data) });
         // dd.alert({ content: idata });
         console.log(res);
@@ -245,6 +266,7 @@ App({
             success: (res) => {
               var hhh = res.filePaths[0];
               console.log("压缩-------------------", res.filePaths[0]);
+              console.log("文件上传地址---" + that.urlApi.upload_img);
               dd.uploadFile({//上传图片
                 url: that.urlApi.upload_img,
                 fileType: 'image',

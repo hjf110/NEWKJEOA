@@ -1,0 +1,29 @@
+<view>
+  <view class="body_img">
+    <view class="img_title">      
+            {{picName}}
+    </view>
+    <view class="nsimg" hidden="{{isLookPic}}" >
+      <view class="imgbox" a:for="{{picShow}}" a:for-index="idx">
+        <image onTap="look" data-index="{{idx}}" data-imglist="{{picShow}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+        <view style="display:inline">
+          <image onTap="delect" data-index="{{idx}}" data-vala="{{pic}}" data-valb="{{picShow}}" data-type="{{picType}}" class="img_close" mode="widthFix" src="/image/close.png" />
+        </view>
+      </view>
+      <view onTap="takePhoto" class="jia" data-vala="{{pic}}" data-valb="{{picShow}}" data-type="{{picType}}">
+        <image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/>
+      </view>
+      <view style='clear:both'></view>
+    </view>
+
+    <view class="nsimg" hidden="{{!isLookPic}}">
+      <view class="imgbox" a:for="{{LookPic}}" a:for-index="idx">
+        <image onTap="look" data-index="{{idx}}" data-imglist="{{LookPic}}" class="img_ns" mode="widthFix" src="{{item}}"/>
+      </view>
+      <view style='clear:both'></view>
+    </view>
+
+
+  </view>
+  <view class="bian"></view>
+</view>

@@ -21,7 +21,7 @@
         <image class="card_image" mode="widthFix" src="/image/ren.png" />
         <text class="card_image_2">{{item.loginName}}</text>
         <image class="card_image left-image" mode="widthFix" src="/image/fengge.png" />
-        <text class="card_image_2 left">自车事故反馈</text>
+        <text class="card_image_2 left">自车交通事故反馈</text>
       </view>
       <view class="card_text">
         <image class="card_image" mode="widthFix" src="/image/time.png" />

@@ -16,11 +16,12 @@ Page({
   onLoad(res) {
     var that = this;
     //获取自车交通事故的权限
-    app.ajaxSubmit(app.urlApi.nci_getUserPower,"GET",null,function(res){/*****************************权限接口*******************************/
+    app.ajaxSubmit(app.urlApi.sfc_getUserPower,"GET",null,function(res){/*****************************权限接口*******************************/
       console.log(res);
       app.userinfo.arr=res.data;//存入权限
       let qx = res.data[0];//读取存入的权限
       console.log("获取的权限---",qx);
+      
       let ym;
       if(qx.nodeNum == 1){ //申请人
         //if(qx.station == 2 ){

@@ -64,7 +64,7 @@ Page({
             page: '/page/carInspectionIndex/carInspectionIndex',
           }
             , {
-            icon: '/image/newcarcheck.png',
+            icon: '/image/shigu.png',
             title: '新车检查装卸事故',
             entitle: 'Promotion',
             page: '/page/carDockIndex/carDockIndex',
@@ -75,12 +75,13 @@ Page({
             entitle: 'Promotion',
             page: '/page/carAccidentIndex/carAccidentIndex',
           }
-            , {
-            icon: '/image/newcarcheck.png',
-            title: '库存管理',
-            entitle: 'Promotion',
-            page: '/page/Inventory_management_index/Inventory_management_index',
-          }]
+            //   , {
+            //   icon: '/image/newcarcheck.png',
+            //   title: '库存管理',
+            //   entitle: 'Promotion',
+            //   page: '/page/Inventory_management_index/Inventory_management_index',
+            // }
+          ]
         that.setData({
           "arr.list": bb
         });
@@ -132,39 +133,7 @@ Page({
 
 
       }
-    }, true, false, true, false)
-
-
-    // console.log("获得的cookie-----", localStorage.getItem("key"));
-    // console.log(res);
-    // var that = this;
-
-    // var name = app.userinfo.name;
-
-    // if (name == "周剑峰" || name == "黄涛" || name == "刘以皇" || name == "应可斌" || name == "王忠林" || name == "蒋秀权" || name == "张凯" || name == "朱丁敏") {
-    //   var alist = that.data.arr.list;
-    //   var ccc = {}
-    //   ccc.icon = '/image/form.png';
-    //   ccc.title = '车辆管理';
-    //   ccc.entitle = '';
-    //   ccc.page = '/page/carManageIndex/carManageIndex';
-
-    //   alist.push(ccc);
-
-    //   var cc = that.data.arr;
-    //   cc.list = alist;
-
-    //   that.setData({
-    //     arr: cc
-    //   });
-    // }
-
-
-
-
-
-
-
+    }, true, false, true, false);
   },
   onGridItemTap(e) {
     console.log(11111111111111111);

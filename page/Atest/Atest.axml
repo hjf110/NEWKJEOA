@@ -1,0 +1,3 @@
+<view>
+ <my-component picName="测试照片" picType="a1" onGetImg="onCounterPlusOne" />
+</view>

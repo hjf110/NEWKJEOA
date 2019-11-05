@@ -44,7 +44,7 @@ Page({
     });
     var that = this;
     console.log("s_arr123", JSON.stringify(app.userinfo.arr));
-    var arr_p = JSON.stringify(app.userinfo.arr);
+    var arr_p = JSON.stringify('权限',app.userinfo.arr);
     app.ajaxSubmit(app.urlApi.re_list, "POST", { page: this.data.page, limit: this.data.limit, s_arr: arr_p, s_refer: this.data.s_refer }, function(res) {
       console.log("得到的列表为", res);
       var aa = res.data;

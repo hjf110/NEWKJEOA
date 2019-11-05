@@ -170,7 +170,7 @@ Page({
     res.complainEvidencePic = app.tihuan(that.data.complainEvidencePic);//图片
 
 
-    if(res.respondent == "" || res.respondent == null || res.respondent == 0){
+    if(res.respondent == "" || res.respondent == null || res.respondent == 0||res.respondent==2000){
       dd.alert({ title: '请选择被问责对象', buttonText: '好的' });
     }else if(res.complainReason == "" || res.complainReason == null){
       dd.alert({ title: '请填写问责事由', buttonText: '好的' });

@@ -103,7 +103,7 @@ Page({
     const thisId = res.id;
     app.getUserPower(app.urlApi.re_getUserPower,function(){/************************获取辞职权限*************************/
 
-      console.log("辞职权限-----",app.userinfo.arr[0]);
+      console.log("辞职权限-----",app.userinfo.arr);
       /*if(app.userinfo.arr[0].nodeNum == 1){//权限为申请人
         that.setData({
           islook: true,
@@ -176,7 +176,7 @@ Page({
               station = info[i].station;
             }
           }
-          console.log("info-------",info);
+          console.log("info具体的权限-------",node,station);
 
           //赋值审批意见*************************************************************
           let ylist = [];
@@ -434,6 +434,7 @@ Page({
   submit(type){
     var that = this;
     console.log('form发生了submit事件',type);
+
     var info = app.userinfo.arr;
     let node;
     let station;
@@ -449,7 +450,8 @@ Page({
 
     if( type == true ){
       console.log("经理同意的提交");
-      let sj = app.getLocalTime(that.data.resignTime,true);//得到时间
+      let sj = that.data.resignTime;//得到时间
+
       console.log("选择的允许离开时间为--",sj);
       if (yj == "" || yj == null) {
         dd.alert({ title: '请输入审批意见', buttonText: '好的' });
