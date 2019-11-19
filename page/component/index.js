@@ -75,6 +75,13 @@ Page({
             entitle: 'Promotion',
             page: '/page/carAccidentIndex/carAccidentIndex',
           }
+            , {
+            icon: '/image/newcarcheck.png',
+            title: '旧车装卸事故',
+            entitle: 'Promotion',
+            page: '/page/carAccidentOld/carAccidentOld',
+          }
+
             //   , {
             //   icon: '/image/newcarcheck.png',
             //   title: '库存管理',

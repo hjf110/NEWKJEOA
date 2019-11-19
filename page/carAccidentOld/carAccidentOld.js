@@ -16,7 +16,7 @@ Page({
   onLoad(res) {
     var that = this;
     //获取自车交通事故的权限
-    app.ajaxSubmit(app.urlApi.sfc_getUserPower,"GET",null,function(res,r){/*****************************权限接口*******************************/
+    app.ajaxSubmit(app.urlApi.oac_getUserPower,"GET",null,function(res,r){/*****************************权限接口*******************************/
       console.log(res);
       if(r){
         app.userinfo.arr=res.data;//存入权限
@@ -30,14 +30,14 @@ Page({
             onItemTap: 'onGridItemTap',
             list: [{
               icon: '/image/shenq.png',
-              title: '自车事故申请',
+              title: '旧车装卸事故申请',
               entitle: '',
-              page: '/page/carAccidentIndex/accident_apply/accident_apply',
+              page: '/page/carAccidentOld/apply/apply',
             } , {
               icon: '/image/jilu.png',
-              title: '申请记录',
+              title: '旧车装卸事故申请记录',
               entitle: '',
-              page: '/page/carAccidentIndex/accident_apply/list/list',
+              page: '/page/carAccidentOld/apply/list/list',
             // } , {
             //   icon: '/image/jilu.png',
             //   title: '离职审批',
@@ -52,9 +52,9 @@ Page({
           onItemTap: 'onGridItemTap',
           list: [{
               icon: '/image/jilu.png',
-              title: '自车事故审批',
+              title: '旧车装卸事故审批',
               entitle: '',
-              page: '/page/carAccidentIndex/accident_approval/list/list',
+              page: '/page/carAccidentOld/approval/list/list',
             } ,
           ]
         }
@@ -63,8 +63,6 @@ Page({
       that.setData({
         arr: ym,
       });
-      }else{
-        
       }
 
     },true,false);

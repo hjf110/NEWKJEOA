@@ -96,8 +96,12 @@
     "page/Inventory_management_index/Inventory_management_index",
     "page/Inventory_management_index/Ling_Yong/add/add",
     "page/Inventory_management_index/Diao_Bo/add/add",
-    "page/Inventory_management_index/Cai_Gou/add/add"
-  
+    "page/Inventory_management_index/Cai_Gou/add/add",
+    "page/carAccidentOld/carAccidentOld",
+    "page/carAccidentOld/apply/apply",
+    "page/carAccidentOld/apply/list/list",
+    "page/carAccidentOld/approval/approval",
+    "page/carAccidentOld/approval/list/list"
   ],
   "window": {
     "enableWK": "YES",

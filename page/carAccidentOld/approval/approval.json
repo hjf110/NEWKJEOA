@@ -1,0 +1,9 @@
+{  
+  "defaultTitle": "审批",
+  "pullRefresh": false,
+  "enableDSL": false,
+  "allowsBounceVertical":"NO",
+   "usingComponents": {
+    "hjf-img-upload": "/components/imgUpload/imgUpload"
+  }
+}

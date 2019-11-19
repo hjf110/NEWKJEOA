@@ -41,6 +41,14 @@
         </view>
       </view>
     </view>
+     <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">客户单位</view>
+        <view class="form-row-content">
+          <view class="things-values">{{customerUnit}}</view>
+        </view>
+      </view>
+    </view>
     <!--<view hidden={{zmPic1Hide}} style="margin-bottom: 20rpx;"><view><view class="body_img"><view class="img_title">
             事故车车架号照片</view><view class="nsimg"><view class="imgbox" a:for="{{carFrameNumberPicShow}}" a:for-index="idx"><image onTap="yl" data-index="{{idx}}" data-imglist="{{carFrameNumberPicShow}}" class="img_ns" mode="widthFix" src="{{item}}"/><view style="display:inline" hidden=true ><image onTap="delect" data-index="{{idx}}" data-vala="{{carFrameNumberPic}}" data-valb="{{carFrameNumberPicShow}}" data-type="a1" class="img_close" mode="widthFix" src="/image/close.png" /></view></view><view hidden=true onTap="takePhoto" class="jia" data-vala="{{carFrameNumberPic}}" data-valb="{{carFrameNumberPicShow}}" data-type="a1"><image class="jia-imgUpload" mode="widthFix" src="/image/imgUpload.png"/></view><view style='clear:both'></view></view></view><view class="bian"></view></view></view> -->
     <view hidden="{{!carPanoramaPicShow.length}}" style="margin-bottom: 20rpx;">
@@ -148,7 +156,7 @@
     </block>
     <!-- 指挥中心进入 -->
     <block a:if="{{type===2}}">
-      <view class="my-button" a:if="{{!controlStatus&&taskStatus===false}}">
+      <view class="my-button" a:if="{{!controlStatus&&taskStatus===true}}">
         <view class="page-section-btns">
           <view>
             <button class="buttons" type="primary" onTap="yes_dd">跟踪已知晓</button>

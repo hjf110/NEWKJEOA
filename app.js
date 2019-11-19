@@ -98,6 +98,17 @@ App({
     sfc_vm_ok:url+"ding/flow/run/selfCarAccident/vmInstruct",//车管确认(任务继续还是任务取消)
     sfc_dd_ok:url+"ding/flow/run/selfCarAccident/controlIsKnow",//指挥中心确认(确认已知晓)
     
+    //旧车装卸事故*************************************************************
+    oac_getUserPower:url+"ding/flow/api/getUserPower?table=ding_flow_run_old_car_accident",//旧车装卸事故权限
+    oac_add:url+"ding/flow/run/oldCarAccident/submit",//提交旧车装卸事故
+    oac_add_list:url+"ding/flow/run/oldCarAccident/querySome",//查看自己的申请记录
+    oac_add_select:url+"ding/flow/run/oldCarAccident/queryOne",//根据id查询单条记录
+    oac_list:url+"ding/flow/run/oldCarAccident/list",//申请记录列表查询(审批人用)
+    oac_vm_ok:url+"ding/flow/run/oldCarAccident/vmInstruct",//车管确认(任务继续还是任务取消)
+    oac_dd_ok:url+"ding/flow/run/oldCarAccident/controlIsKnow",//指挥中心确认(确认已知晓)
+
+
+
 
 
     //库存管理模块
@@ -199,15 +210,15 @@ App({
           } else if (re.success == false) {
             successMethod(re, false);
             dd.alert({ content: re.message });
-            if (msg == true) {
-              dd.alert({ content: re.message });
-            }
+            // if (msg == true) {
+            //   dd.alert({ content: re.message });
+            // }
           } else {
             successMethod(re, false);
             dd.alert({ content: "未知错误" });
-            if (msg == true) {
-              dd.alert({ content: "未知错误" });
-            }
+            // if (msg == true) {
+            //   dd.alert({ content: "未知错误" });
+            // }
           }
         } else if (list_is == true) {
           successMethod(re);

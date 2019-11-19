@@ -34,7 +34,7 @@ Page({
     mobile: "",//员工电话
     licensePlate: "",//自车牌照
     accidentLocation: "",//车辆地点
-
+    customerUnit:"",//客户单位
     carPanoramaPic: [],//事故车全景照片
     carPanoramaPicShow: [],//事故车全景照片显示字段
     carProblemPic: [],//事故车受损部位照片
@@ -86,10 +86,10 @@ Page({
     console.log(res);
     const thisId = res.id;
 
-    app.getUserPower(app.urlApi.sfc_getUserPower, function() {/************************获取辞职权限*************************/
+    app.getUserPower(app.urlApi.oac_getUserPower, function() {/************************获取辞职权限*************************/
       console.log("自车问题权限-----", app.userinfo.arr[0]);
       //赋值操作********************************************************************************************************************开始********************************
-      app.ajaxSubmit(app.urlApi.sfc_add_select, "GET", { id: thisId }, function(e) {//获得单条记录内容
+      app.ajaxSubmit(app.urlApi.oac_add_select, "GET", { id: thisId }, function(e) {//获得单条记录内容
         console.log("获得的单条记录内容为-------", e);
         var infoList = e.data;
         console.log("infoList-------", infoList);
@@ -108,7 +108,7 @@ Page({
           vmStaffDeductionMoney: infoList.vmStaffDeductionMoney, //技师处罚金额
           vmStaffPayRatio: infoList.vmStaffPayRatio, //技师承担赔付比例
           vmStaffPayMoney: infoList.vmStaffPayMoney, //技师赔付金额
-
+          customerUnit:infoList.customerUnit,//客户单位
         });
 
         //事故车全景照片有
@@ -276,7 +276,7 @@ Page({
   yes_dd() {
     var that = this;
     console.log("调度员点击了知晓");
-    app.ajaxSubmit(app.urlApi.sfc_dd_ok, "GET", { id: that.data.id}, (res, r) => {
+    app.ajaxSubmit(app.urlApi.oac_dd_ok, "GET", { id: that.data.id}, (res, r) => {
 
       console.log("存入的数据", res);
       if (r) {
@@ -287,7 +287,7 @@ Page({
           duration: 3000
         });
         dd.redirectTo({
-          url: '/page/carAccidentIndex/carAccidentIndex'
+          url: '/page/carAccidentOld/carAccidentOld'
         })
         that.setData({
           submitLoading: false,
@@ -351,7 +351,7 @@ Page({
       content: '数据提交中,请稍后...',
       delay: 1000,
     });
-    app.ajaxSubmit(app.urlApi.sfc_vm_ok, "GET", { id: that.data.id, ins: type }, (res, r) => {
+    app.ajaxSubmit(app.urlApi.oac_vm_ok, "GET", { id: that.data.id, ins: type }, (res, r) => {
 
       console.log("存入的数据", res);
       if (r) {
@@ -362,7 +362,7 @@ Page({
           duration: 3000
         });
         dd.redirectTo({
-          url: '/page/carAccidentIndex/carAccidentIndex'
+          url: '/page/carAccidentOld/carAccidentOld'
         })
         that.setData({
           submitLoading: false,
@@ -396,7 +396,7 @@ Page({
       })
     } else {
       dd.redirectTo({
-        url: '/page/carAccidentIndex/carAccidentIndex'
+        url: '/page/carAccidentOld/carAccidentOld'
       });
     }
   },
