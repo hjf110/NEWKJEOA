@@ -1,5 +1,5 @@
-// var url = "http://eoa.4008882662.cn/";//正式服务器
-var url = "http://dd.ubertech.cn/";//测试服务器1
+var url = "http://eoa.4008882662.cn/";//正式服务器
+// var url = "http://dd.ubertech.cn/";//测试服务器1
 // var url = "http://47.111.65.109/"//测试服务器2
 // var url = "http://vvwvv.iask.in/"//花生壳服务器
 var URLSTOCK = "http://101.132.151.68:80/";//库存管理测试环境
@@ -10,8 +10,8 @@ App({
   //接口地址
   urlApi: {
     url_address: url,
-    url_http: url,//测试环境
-    // url_http: "",//正式环境
+    // url_http: url,//测试环境
+    url_http: "",//正式环境
     upload_img: url + "file/upload/",//通用上传图片接口
     denlu: url + "login/ding/e",//登录接口
     zidian: url + "ding/flow/api/getDicts",//获取字典表中的数据
