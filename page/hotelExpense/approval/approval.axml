@@ -1,0 +1,224 @@
+<view class="page" hidden={{allHidden}} >
+  <form  onSubmit="yes_dd" >
+    <view class="page-section" style="margin-top:20rpx">
+      <view class="form-row">
+        <view class="form-row-label">姓    名</view>
+        <view class="form-row-content">
+          <view class="things-values">{{name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">岗    位</view>
+        <view class="form-row-content">
+          <view class="things-values">{{post}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">出差时间</view>
+        <view class="form-row-content">
+          <view class="things-values">{{businessTime}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="page-section-title">出差地址</view>
+      <view class="page-section-demo">
+        <textarea  value="{{businessAddress}}" auto-height placeholder="" disabled maxlength="-1" />
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="page-section-title">出差事由</view>
+      <view class="page-section-demo">
+        <textarea  value="{{businessReason}}"  auto-height placeholder="" disabled maxlength="-1" />
+      </view>
+    </view>
+     <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">报销金额</view>
+        <view class="form-row-content">
+          <view class="things-values">{{reimbursementAmount}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 审核状态 -->
+    <view a:if="{{formStation.vmApprovalStatus!=-1}}">
+      <view a:if="{{formStation.vmApprovalStatus ===0}}" class="page-section">
+        <view class="form-row">
+          <view class="form-row-label">审核状态</view>
+          <view class="form-row-content">
+            <view class="things-values" style="font-weight:bolder;color:green;">审核通过</view>
+          </view>
+        </view>
+      </view>
+      <view a:else class="page-section">
+        <view class="form-row">
+          <view class="form-row-label">审核状态</view>
+          <view class="form-row-content">
+            <view class="things-values" style="font-weight:bolder;color:red;">审核不通过</view>
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="form-row">
+          <view class="form-row-label">审核人员</view>
+          <view class="form-row-content">
+            <view class="things-values">{{formStation.vmApprovalUser}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="form-row">
+          <view class="form-row-label">审核时间</view>
+          <view class="form-row-content">
+            <view class="things-values">{{formStation.vmOktime}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 说明财务已经打款了,可以显示打款后的操作 -->
+      <view a:if="{{paymentState===1}}">
+        <view a:if="{{paymentMode}}" class="page-section">
+          <view class="form-row">
+            <view class="form-row-label">打款方式</view>
+            <view class="form-row-content">
+              <view a:if="{{paymentMode===1}}" class="things-values">线下打款</view>
+              <view a:else class="things-values">线上打款</view>
+            </view>
+          </view>
+        </view>
+        <view a:if="{{paymentAccount}}" class="page-section">
+          <view class="form-row">
+            <view class="form-row-label">打款账号</view>
+            <view class="form-row-content">
+              <view class="things-values">{{paymentAccount}}</view>
+            </view>
+          </view>
+        </view>
+        <view a:if="{{paymentPerson}}" class="page-section">
+          <view class="form-row">
+            <view class="form-row-label">打款人</view>
+            <view class="form-row-content">
+              <view class="things-values">{{paymentPerson}}</view>
+            </view>
+          </view>
+        </view>
+        <view a:if="{{paymentTime}}" class="page-section">
+          <view class="form-row">
+            <view class="form-row-label">打款时间</view>
+            <view class="form-row-content">
+              <view class="things-values">{{paymentTime}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 说明已经选择过报销方式了 -->
+        <block a:if="{{invoicePhoto}}">
+          <hjf-img-upload picName="发票照片" isLookPic="{{true}}" LookPic="{{invoicePhotoShow}}" />
+          <view class="page-section">
+            <view class="form-row">
+              <view class="form-row-label">报销方式</view>
+              <view class="form-row-content">
+                <view a:if="{{reimbursementType==1}}" class="things-values">快递报销</view>
+                <view a:else class="things-values">现场报销</view>
+              </view>
+            </view>
+          </view>
+
+
+          <block a:if="{{reimbursementType==1}}">
+            <view a:if="{{expressNo}}" class="page-section">
+              <view class="form-row">
+                <view class="form-row-label">快递单号</view>
+                <view class="form-row-content">
+                  <view class="things-values">{{expressNo}}</view>
+                </view>
+              </view>
+            </view>
+            <hjf-img-upload picName="快递照片" isLookPic="{{true}}" LookPic="{{expressPhotoShow}}" />
+          </block>
+
+
+
+
+        </block>
+        <!-- 说明还没有选择过报销方式 -->
+        <block a:else>
+          <hjf-img-upload picName="发票照片" picType="a1" onGetImg="onGetImg" />
+          <view style="margin-top:10px;" class="page-section">
+            <view class="page-section-title">报销方式</view>
+            <view class="page-section-demo">
+              <radio-group name="reimbursementType" onChange="reimbursementTypeChange">
+                <label class="radio-label">
+                  <radio value="1" checked />快递报销</label>
+                <label class="radio-label">
+                  <radio value="2" />现场报销</label>
+              </radio-group>
+            </view>
+          </view>
+          <!-- 如果选择快递报销 -->
+          <block a:if="{{reimbursementType==1}}">
+            <view class="page-section">
+              <view class="form-row">
+                <view class="form-row-label">快递单号</view>
+                <view class="form-row-content">
+                  <input class="things-values" placeholder="请输入快递单号" name="expressNo" />
+                </view>
+              </view>
+            </view>
+            <hjf-img-upload picName="快递照片" picType="a2" onGetImg="onGetImg" />
+          </block>
+        </block>
+      </view>
+
+      <block a:if="{{receiptInvoicePhoto.length>0}}">
+           <hjf-img-upload picName="发票已收照片" isLookPic="{{true}}" LookPic="{{receiptInvoicePhoto}}" />
+      </block>
+      
+
+
+
+     
+
+    </view>
+    <view class="kuai"></view>
+    <!-- 不同权限不同按钮 -->
+    <!-- 1.车管审批 -->
+    <block a:if="{{type===1}}">
+      <!-- 说明还没有进行指令下达 -->
+      <view class="my-button" a:if="{{formStation.vmApprovalStatus==-1}}">
+        <view class="page-section-btns">
+          <view>
+            <button class="buttons" type="primary"  onTap="yes_ty" loading="{{submitLoading}}" disabled="{{submitLoading}}">{{submitLoading?'提交中':'同意'}}</button>
+          </view>
+          <view>
+            <button class="buttons" onTap="no_ty" loading="{{submitLoading}}" disabled="{{submitLoading}}">{{submitLoading?'提交中':'不同意'}}</button>
+          </view>
+        </view>
+      </view>
+      <view class="button_cl" a:else >
+        <button class="submit_form" style="margin-bottom: 0.16rem;" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+      </view>
+    </block>
+    <!--申请人进入 -->
+    <block a:elif="{{type==2}}">
+      <view class="my-button" a:if="{{!invoicePhoto&&paymentState===1}}">
+        <view class="page-section-btns">
+          <view>
+            <button class="buttons" type="primary" formType="submit" loading="{{submitLoading}}" disabled="{{submitLoading}}" >{{submitLoading?'提交中':'确认提交'}}</button>
+          </view>
+        </view>
+      </view>
+      <view class="button_cl" a:else >
+        <button class="submit_form" style="margin-bottom: 0.16rem;" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+      </view>
+    </block>
+    <!-- 财务或者其他人进入 -->
+    <block a:else>
+      <view class="button_cl">
+        <button class="submit_form" style="margin-bottom: 0.16rem;" size="default" type="primary" loading={{submitLoad}} onTap="go_back">返回</button>
+      </view>
+    </block>
+  </form>
+</view>

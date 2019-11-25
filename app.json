@@ -101,7 +101,12 @@
     "page/carAccidentOld/apply/apply",
     "page/carAccidentOld/apply/list/list",
     "page/carAccidentOld/approval/approval",
-    "page/carAccidentOld/approval/list/list"
+    "page/carAccidentOld/approval/list/list",
+    "page/hotelExpense/hotelExpense",
+    "page/hotelExpense/apply/apply",
+    "page/hotelExpense/approval/approval",
+    "page/hotelExpense/apply/list/list",
+    "page/hotelExpense/approval/list/list"
   ],
   "window": {
     "enableWK": "YES",

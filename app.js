@@ -90,24 +90,31 @@ App({
     ncd_con: url + "ding/flow/run/newCarDock/controlIsKnow",//审批通用接口
 
     //自车交通事故*************************************************************
-    sfc_getUserPower:url+"ding/flow/api/getUserPower?table=ding_flow_run_self_car_accident",//自车交通事故权限
-    sfc_add:url+"ding/flow/run/selfCarAccident/submit",//提交自车交通事故
-    sfc_add_list:url+"ding/flow/run/selfCarAccident/querySome",//查看自己的申请记录
-    sfc_add_select:url+"ding/flow/run/selfCarAccident/queryOne",//根据id查询单条记录
-    sfc_list:url+"ding/flow/run/selfCarAccident/list",//申请记录列表查询(审批人用)
-    sfc_vm_ok:url+"ding/flow/run/selfCarAccident/vmInstruct",//车管确认(任务继续还是任务取消)
-    sfc_dd_ok:url+"ding/flow/run/selfCarAccident/controlIsKnow",//指挥中心确认(确认已知晓)
-    
-    //旧车装卸事故*************************************************************
-    oac_getUserPower:url+"ding/flow/api/getUserPower?table=ding_flow_run_old_car_accident",//旧车装卸事故权限
-    oac_add:url+"ding/flow/run/oldCarAccident/submit",//提交旧车装卸事故
-    oac_add_list:url+"ding/flow/run/oldCarAccident/querySome",//查看自己的申请记录
-    oac_add_select:url+"ding/flow/run/oldCarAccident/queryOne",//根据id查询单条记录
-    oac_list:url+"ding/flow/run/oldCarAccident/list",//申请记录列表查询(审批人用)
-    oac_vm_ok:url+"ding/flow/run/oldCarAccident/vmInstruct",//车管确认(任务继续还是任务取消)
-    oac_dd_ok:url+"ding/flow/run/oldCarAccident/controlIsKnow",//指挥中心确认(确认已知晓)
+    sfc_getUserPower: url + "ding/flow/api/getUserPower?table=ding_flow_run_self_car_accident",//自车交通事故权限
+    sfc_add: url + "ding/flow/run/selfCarAccident/submit",//提交自车交通事故
+    sfc_add_list: url + "ding/flow/run/selfCarAccident/querySome",//查看自己的申请记录
+    sfc_add_select: url + "ding/flow/run/selfCarAccident/queryOne",//根据id查询单条记录
+    sfc_list: url + "ding/flow/run/selfCarAccident/list",//申请记录列表查询(审批人用)
+    sfc_vm_ok: url + "ding/flow/run/selfCarAccident/vmInstruct",//车管确认(任务继续还是任务取消)
+    sfc_dd_ok: url + "ding/flow/run/selfCarAccident/controlIsKnow",//指挥中心确认(确认已知晓)
 
+    //旧车装卸事故*********************************************************************************************************
+    oac_getUserPower: url + "ding/flow/api/getUserPower?table=ding_flow_run_old_car_accident",//旧车装卸事故权限
+    oac_add: url + "ding/flow/run/oldCarAccident/submit",//提交旧车装卸事故
+    oac_add_list: url + "ding/flow/run/oldCarAccident/querySome",//查看自己的申请记录
+    oac_add_select: url + "ding/flow/run/oldCarAccident/queryOne",//根据id查询单条记录
+    oac_list: url + "ding/flow/run/oldCarAccident/list",//申请记录列表查询(审批人用)
+    oac_vm_ok: url + "ding/flow/run/oldCarAccident/vmInstruct",//车管确认(任务继续还是任务取消)
+    oac_dd_ok: url + "ding/flow/run/oldCarAccident/controlIsKnow",//指挥中心确认(确认已知晓)
 
+    //住宿费报销流程********************************************************************************************************
+    stay_getUserPower: url + "ding/flow/api/getUserPower?table=ding_flow_run_stay",//住宿费报销流程权限
+    stay_add: url+"ding/flow/run/stay/submit",//住宿费报销申请提交
+    stay_add_list:url +"ding/flow/run/stay/querySome",//查看自己的申请记录
+    stay_add_select:url +"ding/flow/run/stay/queryOne",//根据id查询单挑记录
+    stay_list:url+"ding/flow/run/stay/list",//申请记录列表(审批人用)
+    stay_approval:url+"ding/flow/run/stay/apply",//通用审批
+    stay_reim:url+"ding/flow/run/stay/reimburse",//报销方式提交
 
 
 

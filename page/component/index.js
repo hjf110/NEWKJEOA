@@ -70,16 +70,22 @@ Page({
             page: '/page/carDockIndex/carDockIndex',
           }
             , {
-            icon: '/image/newcarcheck.png',
+            icon: '/image/zcjt.png',
             title: '自车交通事故',
             entitle: 'Promotion',
             page: '/page/carAccidentIndex/carAccidentIndex',
           }
             , {
-            icon: '/image/newcarcheck.png',
+            icon: '/image/jczx.png',
             title: '旧车装卸事故',
             entitle: 'Promotion',
             page: '/page/carAccidentOld/carAccidentOld',
+          }
+            , {
+            icon: '/image/zsf.png',
+            title: '住宿费报销',
+            entitle: 'Promotion',
+            page: '/page/hotelExpense/hotelExpense',
           }
 
             //   , {

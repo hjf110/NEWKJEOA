@@ -28,6 +28,9 @@ page {
 }
 
 .page-section-title {
+  text-indent: 0.15rem;
+  font-family: 微软雅黑;
+  font-size: 0.35rem;
   padding: 16rpx 32rpx;
 }
 
@@ -520,10 +523,11 @@ input {
   margin-left: 15px;
   background: #F0F0F0;
 }
-.jia-imgUpload{
+
+.jia-imgUpload {
   width: 100%;
-  
 }
+
 .jia-jia {
   position: relative;
   top: -10px;
@@ -728,14 +732,17 @@ input {
 }
 
 /*-----------------------------------------------------------------*/
-.form-row-label{
-   font-family: "微软雅黑";
+
+.form-row-label {
+  font-family: "微软雅黑";
 }
-.page-section{
+
+.page-section {
   position: relative;
 }
-.form-row-red{
-  color:red;
+
+.form-row-red {
+  color: red;
   font-size: 30rpx;
   position: absolute;
   left: 10rpx;
