@@ -80,7 +80,7 @@
         <view class="form-row">
           <view class="form-row-label">指挥中心</view>
           <view class="form-row-content">
-            <view class="things-values" style="font-weight:bolder;color:green;">跟踪已知晓</view>
+            <view class="things-values" style="font-weight:bolder;color:green;">调度已知晓</view>
           </view>
         </view>
       </view>
@@ -151,7 +151,7 @@
       <view class="my-button" a:if="{{!controlStatus&&taskStatus===false}}">
         <view class="page-section-btns">
           <view>
-            <button class="buttons" type="primary" onTap="yes_dd">跟踪已知晓</button>
+            <button class="buttons" type="primary" onTap="yes_dd">调度已知晓</button>
           </view>
         </view>
       </view>

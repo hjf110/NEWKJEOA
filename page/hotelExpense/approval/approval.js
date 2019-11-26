@@ -536,7 +536,7 @@ Page({
           duration: 3000
         });
         dd.redirectTo({
-          url: '/page/carAccidentOld/carAccidentOld'
+          url: '/page/hotelExpense/hotelExpense'
         })
         that.setData({
           submitLoading: false,

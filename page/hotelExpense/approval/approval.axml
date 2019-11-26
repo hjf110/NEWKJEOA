@@ -113,6 +113,9 @@
             </view>
           </view>
         </view>
+
+
+
         <!-- 说明已经选择过报销方式了 -->
         <block a:if="{{invoicePhoto}}">
           <hjf-img-upload picName="发票照片" isLookPic="{{true}}" LookPic="{{invoicePhotoShow}}" />
@@ -136,7 +139,7 @@
                 </view>
               </view>
             </view>
-            <hjf-img-upload picName="快递照片" isLookPic="{{true}}" LookPic="{{expressPhotoShow}}" />
+            <hjf-img-upload picName="快递照片"   isLookPic="{{true}}" LookPic="{{expressPhotoShow}}" />
           </block>
 
 
@@ -144,8 +147,8 @@
 
         </block>
         <!-- 说明还没有选择过报销方式 -->
-        <block a:else>
-          <hjf-img-upload picName="发票照片" picType="a1" onGetImg="onGetImg" />
+        <block a:elif="{{type==2&&!invoicePhoto}}"> 
+          <hjf-img-upload picName="发票照片"  cameraType="2"  picType="a1" onGetImg="onGetImg" />
           <view style="margin-top:10px;" class="page-section">
             <view class="page-section-title">报销方式</view>
             <view class="page-section-demo">
@@ -167,7 +170,7 @@
                 </view>
               </view>
             </view>
-            <hjf-img-upload picName="快递照片" picType="a2" onGetImg="onGetImg" />
+            <hjf-img-upload picName="快递照片" cameraType="2" picType="a2" onGetImg="onGetImg" />
           </block>
         </block>
       </view>

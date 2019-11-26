@@ -41,7 +41,7 @@
     <view class="page-section">
       <view class="page-section-title">出差事由</view>
       <view class="page-section-demo">
-        <textarea name="businessReason"  auto-height placeholder="请输入出差事由"  maxlength="100"  />
+        <textarea name="businessReason"  auto-height placeholder="请输入出差事由和具体的单据编号"  maxlength="100"  />
       </view>
     </view>
 

@@ -156,7 +156,7 @@
     </block>
     <!-- 指挥中心进入 -->
     <block a:if="{{type===2}}">
-      <view class="my-button" a:if="{{!controlStatus&&taskStatus===true}}">
+      <view class="my-button" a:if="{{!controlStatus&&taskStatus===false}}">
         <view class="page-section-btns">
           <view>
             <button class="buttons" type="primary" onTap="yes_dd">跟踪已知晓</button>
